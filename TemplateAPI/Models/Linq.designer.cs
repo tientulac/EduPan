@@ -512,13 +512,6 @@ namespace TemplateAPI.Models
 			return ((ISingleResult<sp_eduPhuongPhapNghienCuu_InsertResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_eduSinhVien_Delete")]
-		public int sp_eduSinhVien_Delete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_sinh_vien", DbType="Int")] System.Nullable<int> iD_sinh_vien)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_sinh_vien);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_eduSinhVien_Insert")]
 		public ISingleResult<sp_eduSinhVien_InsertResult> sp_eduSinhVien_Insert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ho_ten", DbType="NVarChar(50)")] string ho_ten, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dia_chi", DbType="NVarChar(50)")] string dia_chi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="So_dien_thoai", DbType="NVarChar(50)")] string so_dien_thoai, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CCCD", DbType="NVarChar(20)")] string cCCD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gioi_tinh", DbType="Bit")] System.Nullable<bool> gioi_tinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ngay_sinh", DbType="Date")] System.Nullable<System.DateTime> ngay_sinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_truong", DbType="Int")] System.Nullable<int> iD_truong)
 		{
@@ -652,10 +645,10 @@ namespace TemplateAPI.Models
 			return ((ISingleResult<sp_UrcheckResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Urcheck_delete")]
-		public void sp_Urcheck_delete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserID", DbType="Int")] System.Nullable<int> userID)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Urcheck_delete", IsComposable=true)]
+		public object sp_Urcheck_delete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserID", DbType="Int")] System.Nullable<int> userID)
 		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userID);
+			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userID).ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_htUsers_ChangePassword")]
@@ -698,6 +691,13 @@ namespace TemplateAPI.Models
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_trung_tam);
 			return ((ISingleResult<sp_eduTrungTam_DeleteResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_eduSinhVien_Delete")]
+		public ISingleResult<sp_eduSinhVien_DeleteResult> sp_eduSinhVien_Delete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_sinh_vien", DbType="Int")] System.Nullable<int> iD_sinh_vien)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_sinh_vien);
+			return ((ISingleResult<sp_eduSinhVien_DeleteResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -6297,6 +6297,32 @@ namespace TemplateAPI.Models
 		private int _Deleted;
 		
 		public sp_eduTrungTam_DeleteResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Deleted", DbType="Int NOT NULL")]
+		public int Deleted
+		{
+			get
+			{
+				return this._Deleted;
+			}
+			set
+			{
+				if ((this._Deleted != value))
+				{
+					this._Deleted = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_eduSinhVien_DeleteResult
+	{
+		
+		private int _Deleted;
+		
+		public sp_eduSinhVien_DeleteResult()
 		{
 		}
 		
