@@ -12,5 +12,6 @@ namespace TemplateAPI.CommonClass.Models.InputModels
         public DateTime? Ngay_bat_dau { get; set; }
         public DateTime? Ngay_ket_thuc { get; set; }
         public int ID_loai { get; set; }
+        public string Ten_loai { get; set; }
     }
 }

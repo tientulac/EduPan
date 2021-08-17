@@ -57,5 +57,19 @@ namespace TemplateAPI.DAL
             }
             return sp_result;
         }
+
+        public ISingleResult<eduHocBongSinhVien_DeleteResult> Delete(int ID_hb_sv)
+        {
+            ISingleResult<eduHocBongSinhVien_DeleteResult> sp_result;
+            try
+            {
+                sp_result = db.eduHocBongSinhVien_Delete(ID_hb_sv);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return sp_result;
+        }
     }
 }

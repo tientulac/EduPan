@@ -12,5 +12,7 @@ namespace TemplateAPI.CommonClass.Models.InputModels
         public string Ten_hoc_bong { get; set; }
         public DateTime? Ngay_cap { get; set; }
         public int Trang_thai { get; set; }
+        public string Ten_trang_thai { get; set; }
+        public string Ten_loai_hoc_bong { get; set; }
     }
 }

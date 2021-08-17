@@ -6,8 +6,9 @@ using TemplateAPI.CommonClass.Models.InputModels;
 
 namespace TemplateAPI.CommonClass.Models.OutputModels
 {
-    public class ResponseHocBongSinhVien : ResponseBase
+    public class ResponseChucDanh : ResponseBase
     {
-        public List<RequestHocBongSinhVien> Data { get; set; }
+        public List<RequestChucDanh.HocHam> Data1 { get; set; }
+        public List<RequestChucDanh.HocVi> Data2 { get; set; }
     }
 }
