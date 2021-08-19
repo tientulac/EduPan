@@ -9,6 +9,6 @@ namespace TemplateAPI.CommonClass.Models.InputModels
     {
         public int ID_dia_phuong { get; set; }
         public string Ma_dia_phuong { get; set; }
-        public string Ten_dia_phuong { get;set }
+        public string Ten_dia_phuong { get; set; }
     }
 }

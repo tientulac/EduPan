@@ -6,8 +6,8 @@ using TemplateAPI.CommonClass.Models.InputModels;
 
 namespace TemplateAPI.CommonClass.Models.OutputModels
 {
-    public class ResponseLoaiVeMoi : ResponseBase
+    public class ResponseLoaiHoTro : ResponseBase
     {
-        public List<RequestLoaiVeMoi> Data { get; set; }
+        public List<RequestLoaiHoTro> Data { get; set; }
     }
 }

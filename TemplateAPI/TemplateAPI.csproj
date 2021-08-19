@@ -230,6 +230,7 @@
     <Compile Include="CommonClass\Models\InputModels\RequestHocBongSinhVien.cs" />
     <Compile Include="CommonClass\Models\InputModels\RequestHoiThao.cs" />
     <Compile Include="CommonClass\Models\InputModels\RequestLoaiHocBong.cs" />
+    <Compile Include="CommonClass\Models\InputModels\RequestLoaiHoTro.cs" />
     <Compile Include="CommonClass\Models\InputModels\RequestLoaiVeMoi.cs" />
     <Compile Include="CommonClass\Models\InputModels\RequestPhuongPhapNghienCuu.cs" />
     <Compile Include="CommonClass\Models\InputModels\RequestSinhVien.cs" />
@@ -246,6 +247,7 @@
     <Compile Include="CommonClass\Models\OutputModels\ResponseHocBongSinhVien.cs" />
     <Compile Include="CommonClass\Models\OutputModels\ResponseHoiThao.cs" />
     <Compile Include="CommonClass\Models\OutputModels\ResponseLoaiHocBong.cs" />
+    <Compile Include="CommonClass\Models\OutputModels\ResponseLoaiHoTro.cs" />
     <Compile Include="CommonClass\Models\OutputModels\ResponseLoaiVeMoi.cs" />
     <Compile Include="CommonClass\Models\OutputModels\ResponsePhuongPhapNghienCuu.cs" />
     <Compile Include="CommonClass\Models\OutputModels\ResponseSinhVien.cs" />
@@ -271,7 +273,12 @@
     <Compile Include="Controllers\HoiThaoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoaiController.cs" />
+    <Compile Include="Controllers\PhuongPhapNghienCuuController.cs" />
+    <Compile Include="Controllers\SinhVienController.cs" />
     <Compile Include="Controllers\TaiLieuHoiThaoController.cs" />
+    <Compile Include="Controllers\TrungTamController.cs" />
+    <Compile Include="Controllers\TruongHocController.cs" />
+    <Compile Include="Controllers\VeMoiController.cs" />
     <Compile Include="DAL\AccountDAL.cs" />
     <Compile Include="DAL\ChuyenGiaDAL.cs" />
     <Compile Include="DAL\CongTrinhNghienCuuDAL.cs" />

@@ -21,7 +21,7 @@ namespace TemplateAPI.Controllers
 {
     [RoutePrefix("TaiLieuHoiThao")]
     [AllowAnonymous]
-    public class TaiLieuHoiThaoController
+    public class TaiLieuHoiThaoController : ApiController
     {
         TaiLieuHoiThaoDAL objTaiLieu = new TaiLieuHoiThaoDAL();
         string urlFile = System.Web.Hosting.HostingEnvironment.MapPath("~/FileUpload");

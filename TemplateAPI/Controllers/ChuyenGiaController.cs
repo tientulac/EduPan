@@ -38,6 +38,7 @@ namespace TemplateAPI.Controllers
                            select new RequestChuyenGia
                            {
                                ID_chuyen_gia = a.ID_chuyen_gia,
+                               Ten_chuyen_gia = a.Ten_chuyen_gia,
                                ID_hoc_ham = a.ID_hoc_ham.GetValueOrDefault(),
                                ID_hoc_vi = a.ID_hoc_vi.GetValueOrDefault(),
                                Gioi_tinh = a.Gioi_tinh.GetValueOrDefault(),
@@ -45,7 +46,10 @@ namespace TemplateAPI.Controllers
                                ID_phuong_phap = a.ID_phuong_phap.GetValueOrDefault(),
                                ID_cong_trinh = a.ID_cong_trinh.GetValueOrDefault(),
                                Ten_phuong_phap = a.Ten_phuong_phap,
-                               Ten_cong_trinh = a.Ten_cong_trinh
+                               Ten_cong_trinh = a.Ten_cong_trinh,
+                               Ten_hoc_ham = a.Ten_hoc_ham,
+                               Ten_hoc_vi = a.Ten_hoc_vi,
+                               Ten_gioi_tinh = a.Gioi_tinh == true ? "Nam" : "Nữ"
                            }).ToList();
                 res.Data = lst;
                 res.Status = StatusID.Success;

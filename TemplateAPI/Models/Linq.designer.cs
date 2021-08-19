@@ -33,9 +33,6 @@ namespace TemplateAPI.Models
     partial void InserthtUser(htUser instance);
     partial void UpdatehtUser(htUser instance);
     partial void DeletehtUser(htUser instance);
-    partial void InserteduChuyenGia(eduChuyenGia instance);
-    partial void UpdateeduChuyenGia(eduChuyenGia instance);
-    partial void DeleteeduChuyenGia(eduChuyenGia instance);
     partial void InserteduCongTrinhNghienCuu(eduCongTrinhNghienCuu instance);
     partial void UpdateeduCongTrinhNghienCuu(eduCongTrinhNghienCuu instance);
     partial void DeleteeduCongTrinhNghienCuu(eduCongTrinhNghienCuu instance);
@@ -84,6 +81,9 @@ namespace TemplateAPI.Models
     partial void InserteduHocBongSinhVien(eduHocBongSinhVien instance);
     partial void UpdateeduHocBongSinhVien(eduHocBongSinhVien instance);
     partial void DeleteeduHocBongSinhVien(eduHocBongSinhVien instance);
+    partial void InserteduChuyenGia(eduChuyenGia instance);
+    partial void UpdateeduChuyenGia(eduChuyenGia instance);
+    partial void DeleteeduChuyenGia(eduChuyenGia instance);
     #endregion
 		
 		public LinqDataContext() : 
@@ -121,14 +121,6 @@ namespace TemplateAPI.Models
 			get
 			{
 				return this.GetTable<htUser>();
-			}
-		}
-		
-		public System.Data.Linq.Table<eduChuyenGia> eduChuyenGias
-		{
-			get
-			{
-				return this.GetTable<eduChuyenGia>();
 			}
 		}
 		
@@ -260,6 +252,14 @@ namespace TemplateAPI.Models
 			}
 		}
 		
+		public System.Data.Linq.Table<eduChuyenGia> eduChuyenGias
+		{
+			get
+			{
+				return this.GetTable<eduChuyenGia>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.eduDanhSachHoTro_Delete")]
 		public ISingleResult<eduDanhSachHoTro_DeleteResult> eduDanhSachHoTro_Delete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_ho_tro", DbType="Int")] System.Nullable<int> iD_ho_tro)
 		{
@@ -314,27 +314,6 @@ namespace TemplateAPI.Models
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_chuyen_gia);
 			return ((ISingleResult<sp_eduChuyenGia_DeleteResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_eduChuyenGia_Load_List")]
-		public ISingleResult<sp_eduChuyenGia_Load_ListResult> sp_eduChuyenGia_Load_List()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<sp_eduChuyenGia_Load_ListResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_eduChuyenGia_UPDATE")]
-		public ISingleResult<sp_eduChuyenGia_UPDATEResult> sp_eduChuyenGia_UPDATE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_chuyen_gia", DbType="Int")] System.Nullable<int> iD_chuyen_gia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_hoc_ham", DbType="Int")] System.Nullable<int> iD_hoc_ham, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_hoc_vi", DbType="Int")] System.Nullable<int> iD_hoc_vi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gioi_tinh", DbType="Bit")] System.Nullable<bool> gioi_tinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ngay_sinh", DbType="Date")] System.Nullable<System.DateTime> ngay_sinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_phuong_phap", DbType="Int")] System.Nullable<int> iD_phuong_phap, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_cong_trinh", DbType="Int")] System.Nullable<int> iD_cong_trinh)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_chuyen_gia, iD_hoc_ham, iD_hoc_vi, gioi_tinh, ngay_sinh, iD_phuong_phap, iD_cong_trinh);
-			return ((ISingleResult<sp_eduChuyenGia_UPDATEResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_eduChuyenGia_Insert")]
-		public ISingleResult<sp_eduChuyenGia_InsertResult> sp_eduChuyenGia_Insert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_hoc_ham", DbType="Int")] System.Nullable<int> iD_hoc_ham, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_hoc_vi", DbType="Int")] System.Nullable<int> iD_hoc_vi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gioi_tinh", DbType="Bit")] System.Nullable<bool> gioi_tinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ngay_sinh", DbType="Date")] System.Nullable<System.DateTime> ngay_sinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_phuong_phap", DbType="Int")] System.Nullable<int> iD_phuong_phap, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_cong_trinh", DbType="Int")] System.Nullable<int> iD_cong_trinh)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_hoc_ham, iD_hoc_vi, gioi_tinh, ngay_sinh, iD_phuong_phap, iD_cong_trinh);
-			return ((ISingleResult<sp_eduChuyenGia_InsertResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_eduCongTrinhNghienCuu_Delete")]
@@ -699,6 +678,27 @@ namespace TemplateAPI.Models
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_sinh_vien);
 			return ((ISingleResult<sp_eduSinhVien_DeleteResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_eduChuyenGia_Insert")]
+		public ISingleResult<sp_eduChuyenGia_InsertResult> sp_eduChuyenGia_Insert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ten_chuyen_gia", DbType="NVarChar(50)")] string ten_chuyen_gia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_hoc_ham", DbType="Int")] System.Nullable<int> iD_hoc_ham, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_hoc_vi", DbType="Int")] System.Nullable<int> iD_hoc_vi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gioi_tinh", DbType="Bit")] System.Nullable<bool> gioi_tinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ngay_sinh", DbType="Date")] System.Nullable<System.DateTime> ngay_sinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_phuong_phap", DbType="Int")] System.Nullable<int> iD_phuong_phap, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_cong_trinh", DbType="Int")] System.Nullable<int> iD_cong_trinh)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ten_chuyen_gia, iD_hoc_ham, iD_hoc_vi, gioi_tinh, ngay_sinh, iD_phuong_phap, iD_cong_trinh);
+			return ((ISingleResult<sp_eduChuyenGia_InsertResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_eduChuyenGia_UPDATE")]
+		public ISingleResult<sp_eduChuyenGia_UPDATEResult> sp_eduChuyenGia_UPDATE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ten_chuyen_gia", DbType="NVarChar(50)")] string ten_chuyen_gia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_chuyen_gia", DbType="Int")] System.Nullable<int> iD_chuyen_gia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_hoc_ham", DbType="Int")] System.Nullable<int> iD_hoc_ham, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_hoc_vi", DbType="Int")] System.Nullable<int> iD_hoc_vi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gioi_tinh", DbType="Bit")] System.Nullable<bool> gioi_tinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ngay_sinh", DbType="Date")] System.Nullable<System.DateTime> ngay_sinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_phuong_phap", DbType="Int")] System.Nullable<int> iD_phuong_phap, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_cong_trinh", DbType="Int")] System.Nullable<int> iD_cong_trinh)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ten_chuyen_gia, iD_chuyen_gia, iD_hoc_ham, iD_hoc_vi, gioi_tinh, ngay_sinh, iD_phuong_phap, iD_cong_trinh);
+			return ((ISingleResult<sp_eduChuyenGia_UPDATEResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_eduChuyenGia_Load_List")]
+		public ISingleResult<sp_eduChuyenGia_Load_ListResult> sp_eduChuyenGia_Load_List()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_eduChuyenGia_Load_ListResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.htUsers")]
@@ -882,212 +882,6 @@ namespace TemplateAPI.Models
 					this._Email = value;
 					this.SendPropertyChanged("Email");
 					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eduChuyenGia")]
-	public partial class eduChuyenGia : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID_chuyen_gia;
-		
-		private System.Nullable<int> _ID_hoc_ham;
-		
-		private System.Nullable<int> _ID_hoc_vi;
-		
-		private System.Nullable<bool> _Gioi_tinh;
-		
-		private System.Nullable<System.DateTime> _Ngay_sinh;
-		
-		private System.Nullable<int> _ID_phuong_phap;
-		
-		private System.Nullable<int> _ID_cong_trinh;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnID_chuyen_giaChanging(int value);
-    partial void OnID_chuyen_giaChanged();
-    partial void OnID_hoc_hamChanging(System.Nullable<int> value);
-    partial void OnID_hoc_hamChanged();
-    partial void OnID_hoc_viChanging(System.Nullable<int> value);
-    partial void OnID_hoc_viChanged();
-    partial void OnGioi_tinhChanging(System.Nullable<bool> value);
-    partial void OnGioi_tinhChanged();
-    partial void OnNgay_sinhChanging(System.Nullable<System.DateTime> value);
-    partial void OnNgay_sinhChanged();
-    partial void OnID_phuong_phapChanging(System.Nullable<int> value);
-    partial void OnID_phuong_phapChanged();
-    partial void OnID_cong_trinhChanging(System.Nullable<int> value);
-    partial void OnID_cong_trinhChanged();
-    #endregion
-		
-		public eduChuyenGia()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_chuyen_gia", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID_chuyen_gia
-		{
-			get
-			{
-				return this._ID_chuyen_gia;
-			}
-			set
-			{
-				if ((this._ID_chuyen_gia != value))
-				{
-					this.OnID_chuyen_giaChanging(value);
-					this.SendPropertyChanging();
-					this._ID_chuyen_gia = value;
-					this.SendPropertyChanged("ID_chuyen_gia");
-					this.OnID_chuyen_giaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_hoc_ham", DbType="Int")]
-		public System.Nullable<int> ID_hoc_ham
-		{
-			get
-			{
-				return this._ID_hoc_ham;
-			}
-			set
-			{
-				if ((this._ID_hoc_ham != value))
-				{
-					this.OnID_hoc_hamChanging(value);
-					this.SendPropertyChanging();
-					this._ID_hoc_ham = value;
-					this.SendPropertyChanged("ID_hoc_ham");
-					this.OnID_hoc_hamChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_hoc_vi", DbType="Int")]
-		public System.Nullable<int> ID_hoc_vi
-		{
-			get
-			{
-				return this._ID_hoc_vi;
-			}
-			set
-			{
-				if ((this._ID_hoc_vi != value))
-				{
-					this.OnID_hoc_viChanging(value);
-					this.SendPropertyChanging();
-					this._ID_hoc_vi = value;
-					this.SendPropertyChanged("ID_hoc_vi");
-					this.OnID_hoc_viChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gioi_tinh", DbType="Bit")]
-		public System.Nullable<bool> Gioi_tinh
-		{
-			get
-			{
-				return this._Gioi_tinh;
-			}
-			set
-			{
-				if ((this._Gioi_tinh != value))
-				{
-					this.OnGioi_tinhChanging(value);
-					this.SendPropertyChanging();
-					this._Gioi_tinh = value;
-					this.SendPropertyChanged("Gioi_tinh");
-					this.OnGioi_tinhChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ngay_sinh", DbType="Date")]
-		public System.Nullable<System.DateTime> Ngay_sinh
-		{
-			get
-			{
-				return this._Ngay_sinh;
-			}
-			set
-			{
-				if ((this._Ngay_sinh != value))
-				{
-					this.OnNgay_sinhChanging(value);
-					this.SendPropertyChanging();
-					this._Ngay_sinh = value;
-					this.SendPropertyChanged("Ngay_sinh");
-					this.OnNgay_sinhChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_phuong_phap", DbType="Int")]
-		public System.Nullable<int> ID_phuong_phap
-		{
-			get
-			{
-				return this._ID_phuong_phap;
-			}
-			set
-			{
-				if ((this._ID_phuong_phap != value))
-				{
-					this.OnID_phuong_phapChanging(value);
-					this.SendPropertyChanging();
-					this._ID_phuong_phap = value;
-					this.SendPropertyChanged("ID_phuong_phap");
-					this.OnID_phuong_phapChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_cong_trinh", DbType="Int")]
-		public System.Nullable<int> ID_cong_trinh
-		{
-			get
-			{
-				return this._ID_cong_trinh;
-			}
-			set
-			{
-				if ((this._ID_cong_trinh != value))
-				{
-					this.OnID_cong_trinhChanging(value);
-					this.SendPropertyChanging();
-					this._ID_cong_trinh = value;
-					this.SendPropertyChanged("ID_cong_trinh");
-					this.OnID_cong_trinhChanged();
 				}
 			}
 		}
@@ -3353,6 +3147,236 @@ namespace TemplateAPI.Models
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eduChuyenGia")]
+	public partial class eduChuyenGia : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID_chuyen_gia;
+		
+		private System.Nullable<int> _ID_hoc_ham;
+		
+		private System.Nullable<int> _ID_hoc_vi;
+		
+		private System.Nullable<bool> _Gioi_tinh;
+		
+		private System.Nullable<System.DateTime> _Ngay_sinh;
+		
+		private System.Nullable<int> _ID_phuong_phap;
+		
+		private System.Nullable<int> _ID_cong_trinh;
+		
+		private string _Ten_chuyen_gia;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_chuyen_giaChanging(int value);
+    partial void OnID_chuyen_giaChanged();
+    partial void OnID_hoc_hamChanging(System.Nullable<int> value);
+    partial void OnID_hoc_hamChanged();
+    partial void OnID_hoc_viChanging(System.Nullable<int> value);
+    partial void OnID_hoc_viChanged();
+    partial void OnGioi_tinhChanging(System.Nullable<bool> value);
+    partial void OnGioi_tinhChanged();
+    partial void OnNgay_sinhChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgay_sinhChanged();
+    partial void OnID_phuong_phapChanging(System.Nullable<int> value);
+    partial void OnID_phuong_phapChanged();
+    partial void OnID_cong_trinhChanging(System.Nullable<int> value);
+    partial void OnID_cong_trinhChanged();
+    partial void OnTen_chuyen_giaChanging(string value);
+    partial void OnTen_chuyen_giaChanged();
+    #endregion
+		
+		public eduChuyenGia()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_chuyen_gia", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID_chuyen_gia
+		{
+			get
+			{
+				return this._ID_chuyen_gia;
+			}
+			set
+			{
+				if ((this._ID_chuyen_gia != value))
+				{
+					this.OnID_chuyen_giaChanging(value);
+					this.SendPropertyChanging();
+					this._ID_chuyen_gia = value;
+					this.SendPropertyChanged("ID_chuyen_gia");
+					this.OnID_chuyen_giaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_hoc_ham", DbType="Int")]
+		public System.Nullable<int> ID_hoc_ham
+		{
+			get
+			{
+				return this._ID_hoc_ham;
+			}
+			set
+			{
+				if ((this._ID_hoc_ham != value))
+				{
+					this.OnID_hoc_hamChanging(value);
+					this.SendPropertyChanging();
+					this._ID_hoc_ham = value;
+					this.SendPropertyChanged("ID_hoc_ham");
+					this.OnID_hoc_hamChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_hoc_vi", DbType="Int")]
+		public System.Nullable<int> ID_hoc_vi
+		{
+			get
+			{
+				return this._ID_hoc_vi;
+			}
+			set
+			{
+				if ((this._ID_hoc_vi != value))
+				{
+					this.OnID_hoc_viChanging(value);
+					this.SendPropertyChanging();
+					this._ID_hoc_vi = value;
+					this.SendPropertyChanged("ID_hoc_vi");
+					this.OnID_hoc_viChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gioi_tinh", DbType="Bit")]
+		public System.Nullable<bool> Gioi_tinh
+		{
+			get
+			{
+				return this._Gioi_tinh;
+			}
+			set
+			{
+				if ((this._Gioi_tinh != value))
+				{
+					this.OnGioi_tinhChanging(value);
+					this.SendPropertyChanging();
+					this._Gioi_tinh = value;
+					this.SendPropertyChanged("Gioi_tinh");
+					this.OnGioi_tinhChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ngay_sinh", DbType="Date")]
+		public System.Nullable<System.DateTime> Ngay_sinh
+		{
+			get
+			{
+				return this._Ngay_sinh;
+			}
+			set
+			{
+				if ((this._Ngay_sinh != value))
+				{
+					this.OnNgay_sinhChanging(value);
+					this.SendPropertyChanging();
+					this._Ngay_sinh = value;
+					this.SendPropertyChanged("Ngay_sinh");
+					this.OnNgay_sinhChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_phuong_phap", DbType="Int")]
+		public System.Nullable<int> ID_phuong_phap
+		{
+			get
+			{
+				return this._ID_phuong_phap;
+			}
+			set
+			{
+				if ((this._ID_phuong_phap != value))
+				{
+					this.OnID_phuong_phapChanging(value);
+					this.SendPropertyChanging();
+					this._ID_phuong_phap = value;
+					this.SendPropertyChanged("ID_phuong_phap");
+					this.OnID_phuong_phapChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_cong_trinh", DbType="Int")]
+		public System.Nullable<int> ID_cong_trinh
+		{
+			get
+			{
+				return this._ID_cong_trinh;
+			}
+			set
+			{
+				if ((this._ID_cong_trinh != value))
+				{
+					this.OnID_cong_trinhChanging(value);
+					this.SendPropertyChanging();
+					this._ID_cong_trinh = value;
+					this.SendPropertyChanged("ID_cong_trinh");
+					this.OnID_cong_trinhChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten_chuyen_gia", DbType="NVarChar(50)")]
+		public string Ten_chuyen_gia
+		{
+			get
+			{
+				return this._Ten_chuyen_gia;
+			}
+			set
+			{
+				if ((this._Ten_chuyen_gia != value))
+				{
+					this.OnTen_chuyen_giaChanging(value);
+					this.SendPropertyChanging();
+					this._Ten_chuyen_gia = value;
+					this.SendPropertyChanged("Ten_chuyen_gia");
+					this.OnTen_chuyen_giaChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	public partial class eduDanhSachHoTro_DeleteResult
 	{
 		
@@ -3664,228 +3688,6 @@ namespace TemplateAPI.Models
 				if ((this._Deleted != value))
 				{
 					this._Deleted = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_eduChuyenGia_Load_ListResult
-	{
-		
-		private int _ID_chuyen_gia;
-		
-		private System.Nullable<int> _ID_hoc_ham;
-		
-		private System.Nullable<int> _ID_hoc_vi;
-		
-		private System.Nullable<bool> _Gioi_tinh;
-		
-		private System.Nullable<System.DateTime> _Ngay_sinh;
-		
-		private System.Nullable<int> _ID_phuong_phap;
-		
-		private System.Nullable<int> _ID_cong_trinh;
-		
-		private string _Ten_phuong_phap;
-		
-		private string _Ten_cong_trinh;
-		
-		public sp_eduChuyenGia_Load_ListResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_chuyen_gia", DbType="Int NOT NULL")]
-		public int ID_chuyen_gia
-		{
-			get
-			{
-				return this._ID_chuyen_gia;
-			}
-			set
-			{
-				if ((this._ID_chuyen_gia != value))
-				{
-					this._ID_chuyen_gia = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_hoc_ham", DbType="Int")]
-		public System.Nullable<int> ID_hoc_ham
-		{
-			get
-			{
-				return this._ID_hoc_ham;
-			}
-			set
-			{
-				if ((this._ID_hoc_ham != value))
-				{
-					this._ID_hoc_ham = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_hoc_vi", DbType="Int")]
-		public System.Nullable<int> ID_hoc_vi
-		{
-			get
-			{
-				return this._ID_hoc_vi;
-			}
-			set
-			{
-				if ((this._ID_hoc_vi != value))
-				{
-					this._ID_hoc_vi = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gioi_tinh", DbType="Bit")]
-		public System.Nullable<bool> Gioi_tinh
-		{
-			get
-			{
-				return this._Gioi_tinh;
-			}
-			set
-			{
-				if ((this._Gioi_tinh != value))
-				{
-					this._Gioi_tinh = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ngay_sinh", DbType="Date")]
-		public System.Nullable<System.DateTime> Ngay_sinh
-		{
-			get
-			{
-				return this._Ngay_sinh;
-			}
-			set
-			{
-				if ((this._Ngay_sinh != value))
-				{
-					this._Ngay_sinh = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_phuong_phap", DbType="Int")]
-		public System.Nullable<int> ID_phuong_phap
-		{
-			get
-			{
-				return this._ID_phuong_phap;
-			}
-			set
-			{
-				if ((this._ID_phuong_phap != value))
-				{
-					this._ID_phuong_phap = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_cong_trinh", DbType="Int")]
-		public System.Nullable<int> ID_cong_trinh
-		{
-			get
-			{
-				return this._ID_cong_trinh;
-			}
-			set
-			{
-				if ((this._ID_cong_trinh != value))
-				{
-					this._ID_cong_trinh = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten_phuong_phap", DbType="NVarChar(50)")]
-		public string Ten_phuong_phap
-		{
-			get
-			{
-				return this._Ten_phuong_phap;
-			}
-			set
-			{
-				if ((this._Ten_phuong_phap != value))
-				{
-					this._Ten_phuong_phap = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten_cong_trinh", DbType="NVarChar(50)")]
-		public string Ten_cong_trinh
-		{
-			get
-			{
-				return this._Ten_cong_trinh;
-			}
-			set
-			{
-				if ((this._Ten_cong_trinh != value))
-				{
-					this._Ten_cong_trinh = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_eduChuyenGia_UPDATEResult
-	{
-		
-		private int _Updated;
-		
-		public sp_eduChuyenGia_UPDATEResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Updated", DbType="Int NOT NULL")]
-		public int Updated
-		{
-			get
-			{
-				return this._Updated;
-			}
-			set
-			{
-				if ((this._Updated != value))
-				{
-					this._Updated = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_eduChuyenGia_InsertResult
-	{
-		
-		private System.Nullable<decimal> _Identity;
-		
-		public sp_eduChuyenGia_InsertResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Identity]", Storage="_Identity", DbType="Decimal(38,0)")]
-		public System.Nullable<decimal> Identity
-		{
-			get
-			{
-				return this._Identity;
-			}
-			set
-			{
-				if ((this._Identity != value))
-				{
-					this._Identity = value;
 				}
 			}
 		}
@@ -6338,6 +6140,282 @@ namespace TemplateAPI.Models
 				if ((this._Deleted != value))
 				{
 					this._Deleted = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_eduChuyenGia_InsertResult
+	{
+		
+		private System.Nullable<decimal> _Identity;
+		
+		public sp_eduChuyenGia_InsertResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Identity]", Storage="_Identity", DbType="Decimal(38,0)")]
+		public System.Nullable<decimal> Identity
+		{
+			get
+			{
+				return this._Identity;
+			}
+			set
+			{
+				if ((this._Identity != value))
+				{
+					this._Identity = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_eduChuyenGia_UPDATEResult
+	{
+		
+		private int _Updated;
+		
+		public sp_eduChuyenGia_UPDATEResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Updated", DbType="Int NOT NULL")]
+		public int Updated
+		{
+			get
+			{
+				return this._Updated;
+			}
+			set
+			{
+				if ((this._Updated != value))
+				{
+					this._Updated = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_eduChuyenGia_Load_ListResult
+	{
+		
+		private int _ID_chuyen_gia;
+		
+		private System.Nullable<int> _ID_hoc_ham;
+		
+		private System.Nullable<int> _ID_hoc_vi;
+		
+		private System.Nullable<bool> _Gioi_tinh;
+		
+		private System.Nullable<System.DateTime> _Ngay_sinh;
+		
+		private System.Nullable<int> _ID_phuong_phap;
+		
+		private System.Nullable<int> _ID_cong_trinh;
+		
+		private string _Ten_chuyen_gia;
+		
+		private string _Ten_phuong_phap;
+		
+		private string _Ten_cong_trinh;
+		
+		private string _Ten_hoc_ham;
+		
+		private string _Ten_hoc_vi;
+		
+		public sp_eduChuyenGia_Load_ListResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_chuyen_gia", DbType="Int NOT NULL")]
+		public int ID_chuyen_gia
+		{
+			get
+			{
+				return this._ID_chuyen_gia;
+			}
+			set
+			{
+				if ((this._ID_chuyen_gia != value))
+				{
+					this._ID_chuyen_gia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_hoc_ham", DbType="Int")]
+		public System.Nullable<int> ID_hoc_ham
+		{
+			get
+			{
+				return this._ID_hoc_ham;
+			}
+			set
+			{
+				if ((this._ID_hoc_ham != value))
+				{
+					this._ID_hoc_ham = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_hoc_vi", DbType="Int")]
+		public System.Nullable<int> ID_hoc_vi
+		{
+			get
+			{
+				return this._ID_hoc_vi;
+			}
+			set
+			{
+				if ((this._ID_hoc_vi != value))
+				{
+					this._ID_hoc_vi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gioi_tinh", DbType="Bit")]
+		public System.Nullable<bool> Gioi_tinh
+		{
+			get
+			{
+				return this._Gioi_tinh;
+			}
+			set
+			{
+				if ((this._Gioi_tinh != value))
+				{
+					this._Gioi_tinh = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ngay_sinh", DbType="Date")]
+		public System.Nullable<System.DateTime> Ngay_sinh
+		{
+			get
+			{
+				return this._Ngay_sinh;
+			}
+			set
+			{
+				if ((this._Ngay_sinh != value))
+				{
+					this._Ngay_sinh = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_phuong_phap", DbType="Int")]
+		public System.Nullable<int> ID_phuong_phap
+		{
+			get
+			{
+				return this._ID_phuong_phap;
+			}
+			set
+			{
+				if ((this._ID_phuong_phap != value))
+				{
+					this._ID_phuong_phap = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_cong_trinh", DbType="Int")]
+		public System.Nullable<int> ID_cong_trinh
+		{
+			get
+			{
+				return this._ID_cong_trinh;
+			}
+			set
+			{
+				if ((this._ID_cong_trinh != value))
+				{
+					this._ID_cong_trinh = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten_chuyen_gia", DbType="NVarChar(50)")]
+		public string Ten_chuyen_gia
+		{
+			get
+			{
+				return this._Ten_chuyen_gia;
+			}
+			set
+			{
+				if ((this._Ten_chuyen_gia != value))
+				{
+					this._Ten_chuyen_gia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten_phuong_phap", DbType="NVarChar(50)")]
+		public string Ten_phuong_phap
+		{
+			get
+			{
+				return this._Ten_phuong_phap;
+			}
+			set
+			{
+				if ((this._Ten_phuong_phap != value))
+				{
+					this._Ten_phuong_phap = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten_cong_trinh", DbType="NVarChar(50)")]
+		public string Ten_cong_trinh
+		{
+			get
+			{
+				return this._Ten_cong_trinh;
+			}
+			set
+			{
+				if ((this._Ten_cong_trinh != value))
+				{
+					this._Ten_cong_trinh = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten_hoc_ham", DbType="NVarChar(50)")]
+		public string Ten_hoc_ham
+		{
+			get
+			{
+				return this._Ten_hoc_ham;
+			}
+			set
+			{
+				if ((this._Ten_hoc_ham != value))
+				{
+					this._Ten_hoc_ham = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten_hoc_vi", DbType="NVarChar(50)")]
+		public string Ten_hoc_vi
+		{
+			get
+			{
+				return this._Ten_hoc_vi;
+			}
+			set
+			{
+				if ((this._Ten_hoc_vi != value))
+				{
+					this._Ten_hoc_vi = value;
 				}
 			}
 		}

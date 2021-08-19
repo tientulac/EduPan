@@ -9,12 +9,16 @@ namespace TemplateAPI.CommonClass.Models.InputModels
     {
         public int ID_chuyen_gia { get; set; }
         public int ID_hoc_ham { get; set; }
-        public int ID_hoc_vi {get;set;}
+        public int ID_hoc_vi { get; set; }
         public bool Gioi_tinh { get; set; }
         public DateTime? Ngay_sinh { get; set; }
         public int ID_phuong_phap { get; set; }
         public int ID_cong_trinh { get; set; }
         public string Ten_phuong_phap { get; set; }
         public string Ten_cong_trinh { get; set; }
+        public string Ten_hoc_ham { get; set; }
+        public string Ten_hoc_vi { get; set; }
+        public string Ten_chuyen_gia { get; set; }
+        public string Ten_gioi_tinh { get; set; }
     }
 }

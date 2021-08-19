@@ -48,6 +48,7 @@ namespace TemplateAPI.Controllers
                                   Ten_hoc_vi = a.Ten_hoc_vi
                               }).ToList();
                 res.Data1 = lst_hh;
+                res.Data2 = lst_hv;
                 res.Status = StatusID.Success;
             }
             catch (Exception ex)

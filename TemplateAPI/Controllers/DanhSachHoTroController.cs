@@ -43,7 +43,8 @@ namespace TemplateAPI.Controllers
                                So_luong = a.So_luong.GetValueOrDefault(),
                                Trang_thai_duyet = a.Trang_thai_duyet.GetValueOrDefault(),
                                Ten_dia_phuong = a.Ten_dia_phuong,
-                               Ten_loai = a.Ten_loai
+                               Ten_loai = a.Ten_loai,
+                               Ten_trang_thai = a.Trang_thai_duyet == true ? "Đã duyệt" : "Chờ duyệt"
                            }).ToList();
                 res.Data = lst;
                 res.Status = StatusID.Success;

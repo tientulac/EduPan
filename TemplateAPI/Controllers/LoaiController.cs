@@ -40,7 +40,9 @@ namespace TemplateAPI.Controllers
                            select new RequestLoaiHocBong
                            {
                                ID_loai_hoc_bong = a.ID_loai_hoc_bong,
-                               Ten_loai_hoc_bong = a.Ten_loai_hoc_bong
+                               Ten_loai_hoc_bong = a.Ten_loai_hoc_bong,
+                               Gia_tri = a.Gia_tri.GetValueOrDefault(),
+                               Nam = a.Nam.GetValueOrDefault()
                            }).ToList();
                 res.Data = lst;
                 res.Status = StatusID.Success;
@@ -90,7 +92,7 @@ namespace TemplateAPI.Controllers
         }
 
         [HttpPost]
-        [Route("LoaiHB_Update")]
+        [Route("LoaiHocBong_Update")]
         public async Task<ResponseBase> Update(RequestLoaiHocBong req)
         {
             ResponseBase res = new ResponseBase();
@@ -142,6 +144,70 @@ namespace TemplateAPI.Controllers
                 res.Message = ex.Message;
             }
             return await Task.FromResult(res);
+        }
+
+        [HttpGet]
+        [Route("LoaiHoTro_Load_List")]
+        public async Task<HttpResponseMessage> LoaiHoTro_Load_List()
+        {
+            ResponseLoaiHoTro res = new ResponseLoaiHoTro();
+            try
+            {
+                var lst = (from a in objLoaiHT.Load_List()
+                           select new RequestLoaiHoTro
+                           {
+                               ID_loai = a.ID_loai,
+                               Ten_loai = a.Ten_loai
+                           }).ToList();
+                res.Data = lst;
+                res.Status = StatusID.Success;
+            }
+            catch (Exception ex)
+            {
+                res.Status = StatusID.InternalServer;
+                res.Message = ex.Message;
+            }
+
+            var stringdata = JsonConvert.SerializeObject(res);
+
+            var responseResult = new HttpResponseMessage()
+            {
+                Content = new StringContent(stringdata, Encoding.UTF8, "application/json")
+            };
+
+            return await Task.FromResult(responseResult);
+        }
+
+        [HttpGet]
+        [Route("LoaiVe_Load_List")]
+        public async Task<HttpResponseMessage> LoaiVe_Load_List()
+        {
+            ResponseLoaiVeMoi res = new ResponseLoaiVeMoi();
+            try
+            {
+                var lst = (from a in objLoaiVe.Load_List()
+                           select new RequestLoaiVeMoi
+                           {
+                               ID_loai = a.ID_loai,
+                               Ten_loai = a.Ten_loai
+                           }).ToList();
+                res.Data = lst;
+                res.Status = StatusID.Success;
+            }
+            catch (Exception ex)
+            {
+                res.Status = StatusID.InternalServer;
+                res.Message = ex.Message;
+            }
+
+            var stringdata = JsonConvert.SerializeObject(res);
+
+            var responseResult = new HttpResponseMessage()
+            {
+                Content = new StringContent(stringdata, Encoding.UTF8, "application/json")
+            };
+
+            return await Task.FromResult(responseResult);
         }
     }
 }

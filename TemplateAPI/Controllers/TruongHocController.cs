@@ -118,12 +118,12 @@ namespace TemplateAPI.Controllers
 
         [HttpGet]
         [Route("Delete")]
-        public async Task<ResponseBase> Delete(int ID_truong_hoc)
+        public async Task<ResponseBase> Delete(int ID_truong)
         {
             ResponseBase res = new ResponseBase();
             try
             {
-                var rs = objTruongHoc.Delete(ID_truong_hoc);
+                var rs = objTruongHoc.Delete(ID_truong);
                 if (rs.FirstOrDefault().Deleted == 1)
                 {
                     res.Status = StatusID.Success;

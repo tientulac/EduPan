@@ -17,5 +17,6 @@ namespace TemplateAPI.CommonClass.Models.InputModels
         public DateTime? Ngay_sinh { get; set; }
         public int ID_truong { get; set; }
         public string Ten_truong { get; set; }
+        public string Ten_gioi_tinh { get; set; }
     }
 }

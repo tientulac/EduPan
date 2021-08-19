@@ -35,7 +35,7 @@ namespace TemplateAPI.DAL
             ISingleResult<sp_eduChuyenGia_InsertResult> sp_result;
             try
             {
-                sp_result = db.sp_eduChuyenGia_Insert(req.ID_hoc_ham, req.ID_hoc_vi, req.Gioi_tinh, req.Ngay_sinh, req.ID_phuong_phap, req.ID_cong_trinh);
+                sp_result = db.sp_eduChuyenGia_Insert(req.Ten_chuyen_gia,req.ID_hoc_ham, req.ID_hoc_vi, req.Gioi_tinh, req.Ngay_sinh, req.ID_phuong_phap, req.ID_cong_trinh);
             }
             catch (Exception ex)
             {
@@ -49,7 +49,7 @@ namespace TemplateAPI.DAL
             ISingleResult<sp_eduChuyenGia_UPDATEResult> sp_result;
             try
             {
-                sp_result = db.sp_eduChuyenGia_UPDATE(req.ID_chuyen_gia,req.ID_hoc_ham, req.ID_hoc_vi, req.Gioi_tinh, req.Ngay_sinh, req.ID_phuong_phap, req.ID_cong_trinh);
+                sp_result = db.sp_eduChuyenGia_UPDATE(req.Ten_chuyen_gia,req.ID_chuyen_gia,req.ID_hoc_ham, req.ID_hoc_vi, req.Gioi_tinh, req.Ngay_sinh, req.ID_phuong_phap, req.ID_cong_trinh);
             }
             catch (Exception ex)
             {

@@ -45,7 +45,8 @@ namespace TemplateAPI.Controllers
                                Gioi_tinh = a.Gioi_tinh.GetValueOrDefault(),
                                Ngay_sinh = a.Ngay_sinh,
                                ID_truong = a.ID_truong.GetValueOrDefault(),
-                               Ten_truong = a.Ten_truong
+                               Ten_truong = a.Ten_truong,
+                               Ten_gioi_tinh = a.Gioi_tinh == true ? "Nam" : "Nữ"
                            }).ToList();
                 res.Data = lst;
                 res.Status = StatusID.Success;
