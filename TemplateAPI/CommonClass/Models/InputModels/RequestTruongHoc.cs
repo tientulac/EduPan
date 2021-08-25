@@ -12,4 +12,5 @@ namespace TemplateAPI.CommonClass.Models.InputModels
         public string Ten_truong { get; set; }
         public string Dia_chi { get; set; }
     }
+
 }

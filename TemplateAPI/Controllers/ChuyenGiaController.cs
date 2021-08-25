@@ -49,7 +49,8 @@ namespace TemplateAPI.Controllers
                                Ten_cong_trinh = a.Ten_cong_trinh,
                                Ten_hoc_ham = a.Ten_hoc_ham,
                                Ten_hoc_vi = a.Ten_hoc_vi,
-                               Ten_gioi_tinh = a.Gioi_tinh == true ? "Nam" : "Nữ"
+                               Ten_gioi_tinh = a.Gioi_tinh == true ? "Nam" : "Nữ",
+                               Trang_thai = a.Trang_thai == true ? true : false
                            }).ToList();
                 res.Data = lst;
                 res.Status = StatusID.Success;

@@ -25,6 +25,9 @@ namespace TemplateAPI.Controllers
     public class TruongHocController : ApiController
     {
         TruongHocDAL objTruongHoc = new TruongHocDAL();
+        TruongHocCongTrinhDAL objTHCT = new TruongHocCongTrinhDAL();
+        TruongHocPhuongPhapDAL objTHPP = new TruongHocPhuongPhapDAL();
+        private LinqDataContext db = new LinqDataContext();
 
         [HttpGet]
         [Route("Load_List")]
@@ -124,6 +127,250 @@ namespace TemplateAPI.Controllers
             try
             {
                 var rs = objTruongHoc.Delete(ID_truong);
+                if (rs.FirstOrDefault().Deleted == 1)
+                {
+                    res.Status = StatusID.Success;
+                    res.Message = "Xóa thành công !";
+                }
+                else
+                {
+                    res.Status = StatusID.InternalServer;
+                    res.Message = "Xóa thất bại !";
+                }
+            }
+            catch (Exception ex)
+            {
+                res.Status = StatusID.InternalServer;
+                res.Message = ex.Message;
+            }
+            return await Task.FromResult(res);
+        }
+
+        [HttpGet]
+        [Route("Load_CongTrinh")]
+        public async Task<HttpResponseMessage> Load_CongTrinh(int ID_truong)
+        {
+            ResponseTruongHocCongTrinh res = new ResponseTruongHocCongTrinh();
+            try
+            {
+                var lst = (from a in objTHCT.Load_List(ID_truong)
+                           where a.Ten_chuyen_gia != null && a.Ten_chuyen_gia != ""
+                           select new RequestTruongHocCongTrinh
+                           {
+                               ID_th_ct = a.ID_th_ct,
+                               ID_cong_trinh = a.ID_cong_trinh.GetValueOrDefault(),
+                               ID_truong = a.ID_truong.GetValueOrDefault(),
+                               Ten_cong_trinh = a.Ten_cong_trinh,
+                               Ngay_tao = a.Ngay_tao,
+                               Trang_thai = a.Trang_thai.GetValueOrDefault(),
+                               Ten_trang_thai = a.Trang_thai == 1 ? "Chờ duyệt" : "Đã duyệt",
+                               Ten_chuyen_gia = a.Ten_chuyen_gia
+                           }).ToList();
+                res.Data = lst;
+                res.Status = StatusID.Success;
+            }
+            catch (Exception ex)
+            {
+                res.Status = StatusID.InternalServer;
+                res.Message = ex.Message;
+            }
+
+            var stringdata = JsonConvert.SerializeObject(res);
+
+            var responseResult = new HttpResponseMessage()
+            {
+                Content = new StringContent(stringdata, Encoding.UTF8, "application/json")
+            };
+
+            return await Task.FromResult(responseResult);
+        }
+
+        [HttpPost]
+        [Route("Insert_CongTrinh")]
+        public async Task<ResponseBase> Insert_CongTrinh(RequestTruongHocCongTrinh req)
+        {
+            ResponseBase res = new ResponseBase();
+            try
+            {
+                if (req.lst_ID_cong_trinh.Count > 0)
+                {
+                    var sp_delete = db.sp_eduTruongHoc_CongTrinhNC_Delete_ID_truong(req.ID_truong);
+                    if (sp_delete.FirstOrDefault().Deleted >= 0)
+                    {
+                        foreach (var item in req.lst_ID_cong_trinh)
+                        {
+                            var sp_result = objTHCT.Insert(item,req.ID_truong);
+                            if (sp_result.FirstOrDefault().Identity > 0)
+                            {
+                                res.Status = StatusID.Success;
+                                res.Message = "Cập nhật thành công !";
+                            }
+                            else
+                            {
+                                res.Status = StatusID.InternalServer;
+                                res.Message = "Không thể lưu lúc này, vui lòng thử lại sau!";
+                            }
+                        }
+                    }
+                    else
+                    {
+                        res.Status = StatusID.InternalServer;
+                        res.Message = "Không thể lưu lúc này, vui lòng thử lại sau!";
+                    }
+                }
+                else
+                {
+                    var sp_delete = db.sp_eduTruongHoc_CongTrinhNC_Delete_ID_truong(req.ID_truong);
+                    if (sp_delete.FirstOrDefault().Deleted > 0)
+                    {
+                        res.Status = StatusID.Success;
+                        res.Message = "Cập nhật thành công !";
+                    }
+                    else
+                    {
+                        res.Status = StatusID.InternalServer;
+                        res.Message = "Danh sách công trình để trống";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                res.Status = StatusID.InternalServer;
+                res.Message = ex.Message;
+            }
+            return await Task.FromResult(res);
+        }
+
+        [HttpGet]
+        [Route("Delete_CongTrinh")]
+        public async Task<ResponseBase> Delete_CongTrinh(int ID_th_ct)
+        {
+            ResponseBase res = new ResponseBase();
+            try
+            {
+                var rs = objTHCT.Delete(ID_th_ct);
+                if (rs.FirstOrDefault().Deleted == 1)
+                {
+                    res.Status = StatusID.Success;
+                    res.Message = "Xóa thành công !";
+                }
+                else
+                {
+                    res.Status = StatusID.InternalServer;
+                    res.Message = "Xóa thất bại !";
+                }
+            }
+            catch (Exception ex)
+            {
+                res.Status = StatusID.InternalServer;
+                res.Message = ex.Message;
+            }
+            return await Task.FromResult(res);
+        }
+
+        [HttpGet]
+        [Route("Load_PhuongPhap")]
+        public async Task<HttpResponseMessage> Load_PhuongPhap(int ID_truong)
+        {
+            ResponseTruongHocPhuongPhap res = new ResponseTruongHocPhuongPhap();
+            try
+            {
+                var lst = (from a in objTHPP.Load_List(ID_truong)
+                           where a.Ten_chuyen_gia != null && a.Ten_chuyen_gia != ""
+                           select new RequestTruongHocPhuongPhap
+                           {
+                               ID_th_pp = a.ID_th_pp,
+                               ID_phuong_phap = a.ID_phuong_phap.GetValueOrDefault(),
+                               ID_truong = a.ID_truong.GetValueOrDefault(),
+                               Ten_phuong_phap = a.Ten_phuong_phap,
+                               Ngay_tao = a.Ngay_tao,
+                               Trang_thai = a.Trang_thai.GetValueOrDefault(),
+                               Ten_trang_thai = a.Trang_thai == 1 ? "Chờ duyệt" : "Đã duyệt",
+                               Ten_chuyen_gia = a.Ten_chuyen_gia
+                           }).ToList();
+                res.Data = lst;
+                res.Status = StatusID.Success;
+            }
+            catch (Exception ex)
+            {
+                res.Status = StatusID.InternalServer;
+                res.Message = ex.Message;
+            }
+
+            var stringdata = JsonConvert.SerializeObject(res);
+
+            var responseResult = new HttpResponseMessage()
+            {
+                Content = new StringContent(stringdata, Encoding.UTF8, "application/json")
+            };
+
+            return await Task.FromResult(responseResult);
+        }
+
+        [HttpPost]
+        [Route("Insert_PhuongPhap")]
+        public async Task<ResponseBase> Insert_PhuongPhap(RequestTruongHocPhuongPhap req)
+        {
+            ResponseBase res = new ResponseBase();
+            try
+            {
+                if (req.lst_ID_phuong_phap.Count > 0)
+                {
+                    var sp_delete = db.sp_eduTurongHoc_PhuongPhapNC_Delete_ID_truong(req.ID_truong);
+                    if (sp_delete.FirstOrDefault().Deleted >= 0)
+                    {
+                        foreach (var item in req.lst_ID_phuong_phap)
+                        {
+                            var sp_result = objTHPP.Insert(item,req.ID_truong);
+                            if (sp_result.FirstOrDefault().Identity > 0)
+                            {
+                                res.Status = StatusID.Success;
+                                res.Message = "Cập nhật thành công !";
+                            }
+                            else
+                            {
+                                res.Status = StatusID.InternalServer;
+                                res.Message = "Không thể lưu lúc này, vui lòng thử lại sau!";
+                            }
+                        }
+                    }
+                    else
+                    {
+                        res.Status = StatusID.InternalServer;
+                        res.Message = "Không thể lưu lúc này, vui lòng thử lại sau!";
+                    }
+                }
+                else
+                {
+                    var sp_delete = db.sp_eduTurongHoc_PhuongPhapNC_Delete_ID_truong(req.ID_truong);
+                    if (sp_delete.FirstOrDefault().Deleted > 0)
+                    {
+                        res.Status = StatusID.Success;
+                        res.Message = "Cập nhật thành công !";
+                    }
+                    else
+                    {
+                        res.Status = StatusID.InternalServer;
+                        res.Message = "Danh sách công trình để trống";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                res.Status = StatusID.InternalServer;
+                res.Message = ex.Message;
+            }
+            return await Task.FromResult(res);
+        }
+
+        [HttpGet]
+        [Route("Delete_PhuongPhap")]
+        public async Task<ResponseBase> Delete_PhuongPhap(int ID_th_pp)
+        {
+            ResponseBase res = new ResponseBase();
+            try
+            {
+                var rs = objTHPP.Delete(ID_th_pp);
                 if (rs.FirstOrDefault().Deleted == 1)
                 {
                     res.Status = StatusID.Success;

@@ -14,5 +14,7 @@ namespace TemplateAPI.CommonClass.Models.InputModels
         public int Trang_thai { get; set; }
         public string Ten_trang_thai { get; set; }
         public string Ten_loai_hoc_bong { get; set; }
+        public int ID_sinh_vien { get; set; }
+        public string Ho_ten { get; set; }
     }
 }

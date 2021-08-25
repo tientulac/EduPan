@@ -43,7 +43,9 @@ namespace TemplateAPI.Controllers
                                Ngay_cap = a.Ngay_cap,
                                Trang_thai = a.Trang_thai.GetValueOrDefault(),
                                Ten_trang_thai = a.Trang_thai == 1 ? "Đã duyệt" : a.Trang_thai == 2 ? "Chờ duyệt" : "Đã chuyển đến sinh viên",
-                               Ten_loai_hoc_bong = a.Ten_loai_hoc_bong
+                               Ten_loai_hoc_bong = a.Ten_loai_hoc_bong,
+                               ID_sinh_vien = a.ID_sinh_vien.GetValueOrDefault(),
+                               Ho_ten = a.Ho_ten
                            }).ToList();
                 res.Data = lst;
                 res.Status = StatusID.Success;

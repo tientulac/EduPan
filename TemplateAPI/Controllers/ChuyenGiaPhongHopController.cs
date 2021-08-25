@@ -20,26 +20,31 @@ using TemplateAPI.Models;
 
 namespace TemplateAPI.Controllers
 {
-    [RoutePrefix("DiaPhuong")]
+    [RoutePrefix("ChuyenGiaPhongHop")]
     [AllowAnonymous]
-    public class DiaPhuongController : ApiController
+    public class ChuyenGiaPhongHopController : ApiController
     {
         private LinqDataContext db = new LinqDataContext();
-        DiaPhuongDAL objDiaPhuong = new DiaPhuongDAL();
+        ChuyenGiaPhongHopDAL objChuyenGiaPH = new ChuyenGiaPhongHopDAL();
 
         [HttpGet]
         [Route("Load_List")]
         public async Task<HttpResponseMessage> Load_List()
         {
-            ResponseDiaPhuong res = new ResponseDiaPhuong();
+            ResponseChuyenGiaPhongHop res = new ResponseChuyenGiaPhongHop();
             try
             {
-                var lst = (from a in objDiaPhuong.Load_List() orderby a.Ma_dia_phuong ascending
-                           select new RequestDiaPhuong
+                var lst = (from a in objChuyenGiaPH.Load_List()
+                           select new RequestChuyenGiaPhongHop
                            {
-                               ID_dia_phuong = a.ID_dia_phuong,
-                               Ma_dia_phuong = a.Ma_dia_phuong,
-                               Ten_dia_phuong = a.Ten_dia_phuong
+                               ID_cg_ph = a.ID_cg_ph,
+                               ID_phong_hop = a.ID_phong_hop.GetValueOrDefault(),
+                               ID_chuyen_gia = a.ID_chuyen_gia.GetValueOrDefault(),
+                               Hang = a.Hang.GetValueOrDefault(),
+                               Cot = a.Cot.GetValueOrDefault(),
+                               Trang_thai = a.Trang_thai.GetValueOrDefault(),
+                               Ten_chuyen_gia = a.Ten_chuyen_gia,
+                               Ten_phong = a.Ten_phong
                            }).ToList();
                 res.Data = lst;
                 res.Status = StatusID.Success;
@@ -63,12 +68,12 @@ namespace TemplateAPI.Controllers
 
         [HttpPost]
         [Route("Insert")]
-        public async Task<ResponseBase> Insert(RequestDiaPhuong req)
+        public async Task<ResponseBase> Insert(RequestChuyenGiaPhongHop req)
         {
             ResponseBase res = new ResponseBase();
             try
             {
-                var rs = objDiaPhuong.Insert(req);
+                var rs = objChuyenGiaPH.Insert(req);
                 if (rs.FirstOrDefault().Identity > 0)
                 {
                     res.Status = StatusID.Success;
@@ -88,42 +93,14 @@ namespace TemplateAPI.Controllers
             return await Task.FromResult(res);
         }
 
-        [HttpPost]
-        [Route("Update")]
-        public async Task<ResponseBase> Update(RequestDiaPhuong req)
-        {
-            ResponseBase res = new ResponseBase();
-            try
-            {
-                var rs = objDiaPhuong.Update(req);
-                if (rs.FirstOrDefault().Updated == 1)
-                {
-                    res.Status = StatusID.Success;
-                    res.Message = "Cập nhật thành công !";
-                }
-                else
-                {
-                    res.Status = StatusID.InternalServer;
-                    res.Message = "Cập nhật thất bại !";
-                }
-
-            }
-            catch (Exception ex)
-            {
-                res.Status = StatusID.InternalServer;
-                res.Message = ex.Message;
-            }
-            return await Task.FromResult(res);
-        }
-
         [HttpGet]
         [Route("Delete")]
-        public async Task<ResponseBase> Delete(int ID_dia_phuong)
+        public async Task<ResponseBase> Delete(int ID_cg_ph)
         {
             ResponseBase res = new ResponseBase();
             try
             {
-                var rs = objDiaPhuong.Delete(ID_dia_phuong);
+                var rs = objChuyenGiaPH.Delete(ID_cg_ph);
                 if (rs.FirstOrDefault().Deleted == 1)
                 {
                     res.Status = StatusID.Success;

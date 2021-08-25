@@ -20,5 +20,6 @@ namespace TemplateAPI.CommonClass.Models.InputModels
         public string Ten_hoc_vi { get; set; }
         public string Ten_chuyen_gia { get; set; }
         public string Ten_gioi_tinh { get; set; }
+        public bool Trang_thai { get; set; }
     }
 }

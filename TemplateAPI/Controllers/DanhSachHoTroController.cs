@@ -44,7 +44,8 @@ namespace TemplateAPI.Controllers
                                Trang_thai_duyet = a.Trang_thai_duyet.GetValueOrDefault(),
                                Ten_dia_phuong = a.Ten_dia_phuong,
                                Ten_loai = a.Ten_loai,
-                               Ten_trang_thai = a.Trang_thai_duyet == true ? "Đã duyệt" : "Chờ duyệt"
+                               Ten_trang_thai = a.Trang_thai_duyet == true ? "Đã duyệt" : "Chờ duyệt",
+                               Ten_don_vi = a.Ten_loai.Contains("thực phẩm") ? string.Format("{0} (kg)",a.So_luong) : a.So_luong.ToString() 
                            }).ToList();
                 res.Data = lst;
                 res.Status = StatusID.Success;
