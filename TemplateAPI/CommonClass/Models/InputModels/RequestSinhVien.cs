@@ -18,5 +18,8 @@ namespace TemplateAPI.CommonClass.Models.InputModels
         public int ID_truong { get; set; }
         public string Ten_truong { get; set; }
         public string Ten_gioi_tinh { get; set; }
+        public int Count_hoc_bong { get; set; }
+        public string Ngay_cap { get; set; }
+
     }
 }

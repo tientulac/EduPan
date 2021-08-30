@@ -25,6 +25,7 @@ namespace TemplateAPI.Controllers
     public class SinhVienController : ApiController
     {
         SinhVienDAL objSinhVien = new SinhVienDAL();
+        HocBongSinhVienDAL objHBSV = new HocBongSinhVienDAL();
 
         [HttpGet]
         [Route("Load_List")]
@@ -46,7 +47,9 @@ namespace TemplateAPI.Controllers
                                Ngay_sinh = a.Ngay_sinh,
                                ID_truong = a.ID_truong.GetValueOrDefault(),
                                Ten_truong = a.Ten_truong,
-                               Ten_gioi_tinh = a.Gioi_tinh == true ? "Nam" : "Nữ"
+                               Ten_gioi_tinh = a.Gioi_tinh == true ? "Nam" : "Nữ",
+                               Count_hoc_bong = objHBSV.Load_List().Where(M => M.ID_sinh_vien == a.ID_sinh_vien).Count(),
+                               Ngay_cap = objHBSV.Load_List().Where(M => M.ID_sinh_vien == a.ID_sinh_vien).FirstOrDefault().Ngay_cap != null ? objHBSV.Load_List().Where(M => M.ID_sinh_vien == a.ID_sinh_vien).FirstOrDefault().Ngay_cap.ToString() : ""
                            }).ToList();
                 res.Data = lst;
                 res.Status = StatusID.Success;

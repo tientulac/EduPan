@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Configuration;
@@ -24,6 +25,19 @@ namespace TemplateAPI.Controllers
         public AccountAPIController() // Khởi tạo kết nối SQL
         {
             db = new LinqDataContext();
+        }
+
+        public static string GetMD5(string str)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] frData = Encoding.UTF8.GetBytes(str);
+            byte[] tgData = md5.ComputeHash(frData);
+            string hashString = "";
+            for (int i = 0; i < tgData.Length; i++)
+            {
+                hashString += tgData[i].ToString("x2");
+            }
+            return hashString;
         }
 
         AccountDAL objAccount = new AccountDAL();
@@ -85,8 +99,8 @@ namespace TemplateAPI.Controllers
             ResponseBase res = new ResponseBase();
             try
             {
-                m.Password = XCrypto.MD5(m.Password);
-                m.NewPassword = XCrypto.MD5(m.NewPassword);
+                m.Password = GetMD5(m.Password);
+                m.NewPassword = GetMD5(m.NewPassword);
                 var sp_result = objAccount.UserChangePassword(m);
                 if (sp_result.FirstOrDefault().ROW == 1)
                 {
@@ -126,7 +140,7 @@ namespace TemplateAPI.Controllers
 
             try
             {
-                m.Password = XCrypto.MD5(m.Password);
+                m.Password = GetMD5(m.Password);
                 var MemberLogin = objAccount.User_Login(m).ToList();
                 if (MemberLogin.Count() != 1)
                 {
