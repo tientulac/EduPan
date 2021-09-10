@@ -20,31 +20,29 @@ using TemplateAPI.Models;
 
 namespace TemplateAPI.Controllers
 {
-    [RoutePrefix("HoiThao")]
+    [RoutePrefix("Khoa")]
     [AllowAnonymous]
-    public class HoiThaoController : ApiController
+    public class KhoaController : ApiController
     {
         private LinqDataContext db = new LinqDataContext();
-        HoiThaoDAL objHoiThao = new HoiThaoDAL();
+        KhoaDAL objKhoa = new KhoaDAL();
 
         [HttpGet]
         [Route("Load_List")]
         public async Task<HttpResponseMessage> Load_List()
         {
-            ResponseHoiThao res = new ResponseHoiThao();
+            var res = new ResponseKhoa();
             try
             {
-                var lst = (from a in objHoiThao.Load_List()
-                           select new RequestHoiThao
-                           {
-                               ID_hoi_thao = a.ID_hoi_thao,
-                               Ten_hoi_thao = a.Ten_hoi_thao,
-                               Ngay_bat_dau = a.Ngay_bat_dau,
-                               Ngay_ket_thuc = a.Ngay_ket_thuc,
-                               Dia_chi = a.Dia_chi,
-                               Nguoi_to_chuc = a.Nguoi_to_chuc,
-                               So_luong_ve_moi = a.So_luong_ve_moi.GetValueOrDefault()
-                           }).ToList();
+                var lst = (from a in objKhoa.Load_List()
+                              select new RequestKhoa
+                              {
+                                  ID_khoa = a.ID_khoa,
+                                  Ma_khoa = a.Ma_khoa,
+                                  Ten_khoa = a.Ten_khoa,
+                                  ID_truong = a.ID_truong.GetValueOrDefault(),
+                                  Ten_truong = a.Ten_truong
+                              }).ToList();
                 res.Data = lst;
                 res.Status = StatusID.Success;
             }
@@ -64,15 +62,14 @@ namespace TemplateAPI.Controllers
             return await Task.FromResult(responseResult);
         }
 
-
         [HttpPost]
         [Route("Insert")]
-        public async Task<ResponseBase> Insert(RequestHoiThao req)
+        public async Task<ResponseBase> Insert(RequestKhoa req)
         {
             ResponseBase res = new ResponseBase();
             try
             {
-                var rs = objHoiThao.Insert(req);
+                var rs = objKhoa.Insert(req);
                 if (rs.FirstOrDefault().Identity > 0)
                 {
                     res.Status = StatusID.Success;
@@ -94,12 +91,12 @@ namespace TemplateAPI.Controllers
 
         [HttpPost]
         [Route("Update")]
-        public async Task<ResponseBase> Update(RequestHoiThao req)
+        public async Task<ResponseBase> Update(RequestKhoa req)
         {
             ResponseBase res = new ResponseBase();
             try
             {
-                var rs = objHoiThao.Update(req);
+                var rs = objKhoa.Update(req);
                 if (rs.FirstOrDefault().Updated == 1)
                 {
                     res.Status = StatusID.Success;
@@ -122,12 +119,12 @@ namespace TemplateAPI.Controllers
 
         [HttpGet]
         [Route("Delete")]
-        public async Task<ResponseBase> Delete(int ID_hoi_thao)
+        public async Task<ResponseBase> Delete(int ID_khoa)
         {
             ResponseBase res = new ResponseBase();
             try
             {
-                var rs = objHoiThao.Delete(ID_hoi_thao);
+                var rs = objKhoa.Delete(ID_khoa);
                 if (rs.FirstOrDefault().Deleted == 1)
                 {
                     res.Status = StatusID.Success;

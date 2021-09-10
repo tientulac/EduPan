@@ -35,7 +35,7 @@ namespace TemplateAPI.DAL
             ISingleResult<eduDanhSachHoTro_INSERTResult> sp_result;
             try
             {
-                sp_result = db.eduDanhSachHoTro_INSERT(req.ID_loai,req.ID_dia_phuong,req.So_luong,req.Trang_thai_duyet);
+                sp_result = db.eduDanhSachHoTro_INSERT(req.ID_loai,req.ID_dia_phuong,req.So_luong,req.Trang_thai_duyet,req.Thoi_gian_quyen_gop,req.So_tien_mong_muon,req.So_tien_ung_ho);
             }
             catch (Exception ex)
             {
@@ -49,7 +49,7 @@ namespace TemplateAPI.DAL
             ISingleResult<eduDanhSachHoTro_UpdateResult> sp_result;
             try
             {
-                sp_result = db.eduDanhSachHoTro_Update(req.ID_ho_tro,req.ID_loai, req.ID_dia_phuong, req.So_luong, req.Trang_thai_duyet);
+                sp_result = db.eduDanhSachHoTro_Update(req.ID_ho_tro, req.ID_loai, req.ID_dia_phuong, req.So_luong, req.Trang_thai_duyet, req.Thoi_gian_quyen_gop, req.So_tien_mong_muon, req.So_tien_ung_ho);
             }
             catch (Exception ex)
             {

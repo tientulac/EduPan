@@ -45,8 +45,9 @@ namespace TemplateAPI.Controllers
                                CCCD = a.CCCD,
                                Gioi_tinh = a.Gioi_tinh.GetValueOrDefault(),
                                Ngay_sinh = a.Ngay_sinh,
-                               ID_truong = a.ID_truong.GetValueOrDefault(),
+                               ID_khoa = a.ID_khoa.GetValueOrDefault(),
                                Ten_truong = a.Ten_truong,
+                               Ten_khoa = a.Ten_khoa,
                                Ten_gioi_tinh = a.Gioi_tinh == true ? "Nam" : "Nữ",
                                Count_hoc_bong = objHBSV.Load_List().Where(M => M.ID_sinh_vien == a.ID_sinh_vien).Count(),
                                Ngay_cap = objHBSV.Load_List().Where(M => M.ID_sinh_vien == a.ID_sinh_vien).FirstOrDefault().Ngay_cap != null ? objHBSV.Load_List().Where(M => M.ID_sinh_vien == a.ID_sinh_vien).FirstOrDefault().Ngay_cap.ToString() : ""

@@ -20,6 +20,8 @@ namespace TemplateAPI.CommonClass.Models.InputModels
         public string Ten_gioi_tinh { get; set; }
         public int Count_hoc_bong { get; set; }
         public string Ngay_cap { get; set; }
+        public int ID_khoa { get; set; }
+        public string Ten_khoa { get; set; }
 
     }
 }

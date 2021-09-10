@@ -1,23 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EduPan" Class="LinqDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-8JPNURT;Initial Catalog=EduPan;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="EduPanConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.htUsers" Member="htUsers">
-    <Type Name="htUser">
-      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="PassWord" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="FullName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Admin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+  <Table Name="dbo.eduChuyenGia" Member="eduChuyenGias">
+    <Type Name="eduChuyenGia">
+      <Column Name="ID_chuyen_gia" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_hoc_ham" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_hoc_vi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Gioi_tinh" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Ngay_sinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ID_phuong_phap" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_cong_trinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ten_chuyen_gia" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.eduDanhSachHoTro" Member="eduDanhSachHoTros">
-    <Type Name="eduDanhSachHoTro">
-      <Column Name="ID_ho_tro" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ID_loai" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ID_dia_phuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="So_luong" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Trang_thai_duyet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+  <Table Name="dbo.eduChuyenGiaPhongHop" Member="eduChuyenGiaPhongHops">
+    <Type Name="eduChuyenGiaPhongHop">
+      <Column Name="ID_cg_ph" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_phong_hop" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_chuyen_gia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Hang" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cot" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Trang_thai" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eduCongTrinhNghienCuu" Member="eduCongTrinhNghienCuus">
+    <Type Name="eduCongTrinhNghienCuu">
+      <Column Name="ID_cong_trinh" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ten_cong_trinh" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Ngay_tao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Trang_thai" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.eduDiaPhuong" Member="eduDiaPhuongs">
@@ -39,20 +49,20 @@
       <Column Name="Ten_hoc_ham" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.eduKhoa" Member="eduKhoas">
+    <Type Name="eduKhoa">
+      <Column Name="ID_khoa" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ma_khoa" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ten_khoa" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ID_truong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.eduLoaiHocBong" Member="eduLoaiHocBongs">
     <Type Name="eduLoaiHocBong">
       <Column Name="ID_loai_hoc_bong" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Ten_loai_hoc_bong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Gia_tri" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="Nam" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.eduLoaiHoiThao" Member="eduLoaiHoiThaos">
-    <Type Name="eduLoaiHoiThao">
-      <Column Name="ID_loai_hoi_thao" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Ten_loai_hoi_thao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Ngay_bat_dau" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Ngay_ket_thuc" Type="System.DateTime" DbType="Date" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.eduLoaiHoTro" Member="eduLoaiHoTros">
@@ -65,6 +75,17 @@
     <Type Name="eduLoaiVeMoi">
       <Column Name="ID_loai" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Ten_loai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eduPhongHop" Member="eduPhongHops">
+    <Type Name="eduPhongHop">
+      <Column Name="ID_phong_hop" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ma_phong" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Ten_phong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Suc_chua" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="So_hang" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="So_cot" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_hoi_thao" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.eduPhuongPhapNghienCuu" Member="eduPhuongPhapNghienCuus">
@@ -85,7 +106,7 @@
       <Column Name="CCCD" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="Gioi_tinh" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="Ngay_sinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="ID_truong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_khoa" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.eduTaiLieuHoiThao" Member="eduTaiLieuHoiThaos">
@@ -117,6 +138,31 @@
       <Column Name="Dia_chi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.eduTruongHoc_CongTrinhNC" Member="eduTruongHoc_CongTrinhNCs">
+    <Type Name="eduTruongHoc_CongTrinhNC">
+      <Column Name="ID_th_ct" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_cong_trinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_truong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eduTruongHoc_PhuongPhapNC" Member="eduTruongHoc_PhuongPhapNCs">
+    <Type Name="eduTruongHoc_PhuongPhapNC">
+      <Column Name="ID_th_pp" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_phuong_phap" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_truong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.htUsers" Member="htUsers">
+    <Type Name="htUser">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PassWord" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Admin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.eduVeMoi" Member="eduVeMois">
     <Type Name="eduVeMoi">
       <Column Name="ID_ve_moi" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -133,26 +179,9 @@
       <Column Name="Ten_hoc_bong" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Ngay_cap" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="Trang_thai" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.eduChuyenGia" Member="eduChuyenGias">
-    <Type Name="eduChuyenGia">
-      <Column Name="ID_chuyen_gia" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ID_hoc_ham" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ID_hoc_vi" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Gioi_tinh" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Ngay_sinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="ID_phuong_phap" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ID_cong_trinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Ten_chuyen_gia" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.eduCongTrinhNghienCuu" Member="eduCongTrinhNghienCuus">
-    <Type Name="eduCongTrinhNghienCuu">
-      <Column Name="ID_cong_trinh" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Ten_cong_trinh" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Ngay_tao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Trang_thai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_sinh_vien" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Gia_tri_max" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Ngay_het_han" Type="System.DateTime" DbType="Date" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.eduHoiThao" Member="eduHoiThaos">
@@ -161,42 +190,27 @@
       <Column Name="Ten_hoi_thao" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Ngay_bat_dau" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="Ngay_ket_thuc" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Dia_chi" Type="System.String" DbType="NChar(200)" CanBeNull="true" />
+      <Column Name="Nguoi_to_chuc" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="So_luong_ve_moi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.eduDanhSachHoTro" Member="eduDanhSachHoTros">
+    <Type Name="eduDanhSachHoTro">
+      <Column Name="ID_ho_tro" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_loai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_dia_phuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="So_luong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Trang_thai_duyet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Thoi_gian_quyen_gop" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="So_tien_mong_muon" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="So_tien_ung_ho" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.eduDanhSachHoTro_Delete" Method="eduDanhSachHoTro_Delete">
     <Parameter Name="ID_ho_tro" Parameter="iD_ho_tro" Type="System.Int32" DbType="Int" />
     <ElementType Name="eduDanhSachHoTro_DeleteResult">
       <Column Name="Deleted" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.eduDanhSachHoTro_INSERT" Method="eduDanhSachHoTro_INSERT">
-    <Parameter Name="ID_loai" Parameter="iD_loai" Type="System.Int32" DbType="Int" />
-    <Parameter Name="ID_dia_phuong" Parameter="iD_dia_phuong" Type="System.Int32" DbType="Int" />
-    <Parameter Name="So_luong" Parameter="so_luong" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Trang_thai_duyet" Parameter="trang_thai_duyet" Type="System.Boolean" DbType="Bit" />
-    <ElementType Name="eduDanhSachHoTro_INSERTResult">
-      <Column Name="[Identity]" Member="Identity" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.eduDanhSachHoTro_Load_List" Method="eduDanhSachHoTro_Load_List">
-    <ElementType Name="eduDanhSachHoTro_Load_ListResult">
-      <Column Name="ID_ho_tro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ID_loai" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ID_dia_phuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="So_luong" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Trang_thai_duyet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Ten_dia_phuong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Ten_loai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.eduDanhSachHoTro_Update" Method="eduDanhSachHoTro_Update">
-    <Parameter Name="ID_ho_tro" Parameter="iD_ho_tro" Type="System.Int32" DbType="Int" />
-    <Parameter Name="ID_loai" Parameter="iD_loai" Type="System.Int32" DbType="Int" />
-    <Parameter Name="ID_dia_phuong" Parameter="iD_dia_phuong" Type="System.Int32" DbType="Int" />
-    <Parameter Name="So_luong" Parameter="so_luong" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Trang_thai_duyet" Parameter="trang_thai_duyet" Type="System.Boolean" DbType="Bit" />
-    <ElementType Name="eduDanhSachHoTro_UpdateResult">
-      <Column Name="Updated" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_eduChuyenGia_Delete" Method="sp_eduChuyenGia_Delete">
@@ -282,35 +296,10 @@
       <Column Name="Ten_hoc_vi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_eduHoiThao_Insert" Method="sp_eduHoiThao_Insert">
-    <Parameter Name="Ten_hoi_thao" Parameter="ten_hoi_thao" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Ngay_bat_dau" Parameter="ngay_bat_dau" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="Ngay_ket_thuc" Parameter="ngay_ket_thuc" Type="System.DateTime" DbType="Date" />
-    <ElementType Name="sp_eduHoiThao_InsertResult">
-      <Column Name="[Identity]" Member="Identity" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_eduHoiThao_Load_List" Method="sp_eduHoiThao_Load_List">
-    <ElementType Name="sp_eduHoiThao_Load_ListResult">
-      <Column Name="ID_hoi_thao" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Ten_hoi_thao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Ngay_bat_dau" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Ngay_ket_thuc" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.sp_eduLoaiHocBong_Delete" Method="sp_eduLoaiHocBong_Delete">
     <Parameter Name="ID_loai_hoc_bong" Parameter="iD_loai_hoc_bong" Type="System.Int32" DbType="Int" />
     <ElementType Name="sp_eduLoaiHocBong_DeleteResult">
       <Column Name="Deleted" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_eduHoiThao_Update" Method="sp_eduHoiThao_Update">
-    <Parameter Name="ID_hoi_thao" Parameter="iD_hoi_thao" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Ten_hoi_thao" Parameter="ten_hoi_thao" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Ngay_bat_dau" Parameter="ngay_bat_dau" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="Ngay_ket_thuc" Parameter="ngay_ket_thuc" Type="System.DateTime" DbType="Date" />
-    <ElementType Name="sp_eduHoiThao_UpdateResult">
-      <Column Name="Updated" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_eduLoaiHocBong_Insert" Method="sp_eduLoaiHocBong_Insert">
@@ -379,47 +368,6 @@
     <Parameter Name="Trang_thai" Parameter="trang_thai" Type="System.Int32" DbType="Int" />
     <ElementType Name="sp_eduPhuongPhapNghienCuu_InsertResult">
       <Column Name="[Identity]" Member="Identity" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_eduSinhVien_Insert" Method="sp_eduSinhVien_Insert">
-    <Parameter Name="Ho_ten" Parameter="ho_ten" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Dia_chi" Parameter="dia_chi" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="So_dien_thoai" Parameter="so_dien_thoai" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="CCCD" Parameter="cCCD" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="Gioi_tinh" Parameter="gioi_tinh" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="Ngay_sinh" Parameter="ngay_sinh" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="ID_truong" Parameter="iD_truong" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_eduSinhVien_InsertResult">
-      <Column Name="[Identity]" Member="Identity" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_eduSinhVien_Load_List" Method="sp_eduSinhVien_Load_List">
-    <ElementType Name="sp_eduSinhVien_Load_ListResult">
-      <Column Name="ID_sinh_vien" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Ho_ten" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Dia_chi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="So_dien_thoai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="CCCD" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="Gioi_tinh" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Ngay_sinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="ID_truong" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Ten_truong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_eduSinhVien_Update" Method="sp_eduSinhVien_Update">
-    <Parameter Name="ID_sinh_vien" Parameter="iD_sinh_vien" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Ho_ten" Parameter="ho_ten" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Dia_chi" Parameter="dia_chi" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="So_dien_thoai" Parameter="so_dien_thoai" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="CCCD" Parameter="cCCD" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="Gioi_tinh" Parameter="gioi_tinh" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="Ngay_sinh" Parameter="ngay_sinh" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="ID_truong" Parameter="iD_truong" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_eduSinhVien_UpdateResult">
-      <Column Name="Updated" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_eduTaiLieuHoiThao_Insert" Method="sp_eduTaiLieuHoiThao_Insert">
@@ -627,12 +575,6 @@
       <Column Name="Deleted" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_eduSinhVien_Delete" Method="sp_eduSinhVien_Delete">
-    <Parameter Name="ID_sinh_vien" Parameter="iD_sinh_vien" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_eduSinhVien_DeleteResult">
-      <Column Name="Deleted" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.sp_eduChuyenGia_Insert" Method="sp_eduChuyenGia_Insert">
     <Parameter Name="Ten_chuyen_gia" Parameter="ten_chuyen_gia" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="ID_hoc_ham" Parameter="iD_hoc_ham" Type="System.Int32" DbType="Int" />
@@ -655,45 +597,6 @@
     <Parameter Name="ID_phuong_phap" Parameter="iD_phuong_phap" Type="System.Int32" DbType="Int" />
     <Parameter Name="ID_cong_trinh" Parameter="iD_cong_trinh" Type="System.Int32" DbType="Int" />
     <ElementType Name="sp_eduChuyenGia_UPDATEResult">
-      <Column Name="Updated" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_eduHocBongSinhVien_Load_List" Method="sp_eduHocBongSinhVien_Load_List">
-    <ElementType Name="sp_eduHocBongSinhVien_Load_ListResult">
-      <Column Name="ID_hb_sv" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ID_loai" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Ten_hoc_bong" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Ngay_cap" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Trang_thai" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ID_sinh_vien" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Ten_loai_hoc_bong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Ho_ten" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.eduHocBongSinhVien_Delete" Method="eduHocBongSinhVien_Delete">
-    <Parameter Name="ID_hb_sv" Parameter="iD_hb_sv" Type="System.Int32" DbType="Int" />
-    <ElementType Name="eduHocBongSinhVien_DeleteResult">
-      <Column Name="Deleted" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.eduHocBongSinhVien_Insert" Method="eduHocBongSinhVien_Insert">
-    <Parameter Name="ID_loai" Parameter="iD_loai" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Ten_hoc_bong" Parameter="ten_hoc_bong" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="Ngay_cap" Parameter="ngay_cap" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="Trang_thai" Parameter="trang_thai" Type="System.Int32" DbType="Int" />
-    <Parameter Name="ID_sinh_vien" Parameter="iD_sinh_vien" Type="System.Int32" DbType="Int" />
-    <ElementType Name="eduHocBongSinhVien_InsertResult">
-      <Column Name="[Identity]" Member="Identity" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.eduHocBongSinhVien_Update" Method="eduHocBongSinhVien_Update">
-    <Parameter Name="ID_hb_sv" Parameter="iD_hb_sv" Type="System.Int32" DbType="Int" />
-    <Parameter Name="ID_loai" Parameter="iD_loai" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Ten_hoc_bong" Parameter="ten_hoc_bong" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="Ngay_cap" Parameter="ngay_cap" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="Trang_thai" Parameter="trang_thai" Type="System.Int32" DbType="Int" />
-    <Parameter Name="ID_sinh_vien" Parameter="iD_sinh_vien" Type="System.Int32" DbType="Int" />
-    <ElementType Name="eduHocBongSinhVien_UpdateResult">
       <Column Name="Updated" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
@@ -843,6 +746,213 @@
       <Column Name="Ten_hoc_ham" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Ten_hoc_vi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Trang_thai" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_eduSinhVien_Delete" Method="sp_eduSinhVien_Delete">
+    <Parameter Name="ID_sinh_vien" Parameter="iD_sinh_vien" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_eduSinhVien_DeleteResult">
+      <Column Name="Deleted" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_eduSinhVien_Insert" Method="sp_eduSinhVien_Insert">
+    <Parameter Name="Ho_ten" Parameter="ho_ten" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Dia_chi" Parameter="dia_chi" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="So_dien_thoai" Parameter="so_dien_thoai" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CCCD" Parameter="cCCD" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="Gioi_tinh" Parameter="gioi_tinh" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Ngay_sinh" Parameter="ngay_sinh" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="ID_khoa" Parameter="iD_khoa" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_eduSinhVien_InsertResult">
+      <Column Name="[Identity]" Member="Identity" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_eduSinhVien_Load_List" Method="sp_eduSinhVien_Load_List">
+    <ElementType Name="sp_eduSinhVien_Load_ListResult">
+      <Column Name="ID_sinh_vien" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ho_ten" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Dia_chi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="So_dien_thoai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CCCD" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Gioi_tinh" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Ngay_sinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ID_khoa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ten_khoa" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Ten_truong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_eduSinhVien_Update" Method="sp_eduSinhVien_Update">
+    <Parameter Name="ID_sinh_vien" Parameter="iD_sinh_vien" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Ho_ten" Parameter="ho_ten" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Dia_chi" Parameter="dia_chi" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="So_dien_thoai" Parameter="so_dien_thoai" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CCCD" Parameter="cCCD" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="Gioi_tinh" Parameter="gioi_tinh" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Ngay_sinh" Parameter="ngay_sinh" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="ID_khoa" Parameter="iD_khoa" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_eduSinhVien_UpdateResult">
+      <Column Name="Updated" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_eduHocBongSinhVien_Load_List" Method="sp_eduHocBongSinhVien_Load_List">
+    <ElementType Name="sp_eduHocBongSinhVien_Load_ListResult">
+      <Column Name="ID_hb_sv" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_loai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ten_hoc_bong" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Ngay_cap" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Trang_thai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_sinh_vien" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Gia_tri_max" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Ngay_het_han" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Ten_loai_hoc_bong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ho_ten" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ten_khoa" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Ten_truong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.eduHocBongSinhVien_Update" Method="eduHocBongSinhVien_Update">
+    <Parameter Name="ID_hb_sv" Parameter="iD_hb_sv" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_loai" Parameter="iD_loai" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Ten_hoc_bong" Parameter="ten_hoc_bong" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Ngay_cap" Parameter="ngay_cap" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Trang_thai" Parameter="trang_thai" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_sinh_vien" Parameter="iD_sinh_vien" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Gia_tri_max" Parameter="gia_tri_max" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="Ngay_het_han" Parameter="ngay_het_han" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="eduHocBongSinhVien_UpdateResult">
+      <Column Name="Updated" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.eduHocBongSinhVien_Insert" Method="eduHocBongSinhVien_Insert">
+    <Parameter Name="ID_loai" Parameter="iD_loai" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Ten_hoc_bong" Parameter="ten_hoc_bong" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Ngay_cap" Parameter="ngay_cap" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Trang_thai" Parameter="trang_thai" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_sinh_vien" Parameter="iD_sinh_vien" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Gia_tri_max" Parameter="gia_tri_max" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="Ngay_het_han" Parameter="ngay_het_han" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="eduHocBongSinhVien_InsertResult">
+      <Column Name="[Identity]" Member="Identity" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.eduHocBongSinhVien_Delete" Method="eduHocBongSinhVien_Delete">
+    <Parameter Name="ID_hb_sv" Parameter="iD_hb_sv" Type="System.Int32" DbType="Int" />
+    <ElementType Name="eduHocBongSinhVien_DeleteResult">
+      <Column Name="Deleted" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_eduKhoa_Insert" Method="sp_eduKhoa_Insert">
+    <Parameter Name="Ma_khoa" Parameter="ma_khoa" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Ten_khoa" Parameter="ten_khoa" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="ID_truong" Parameter="iD_truong" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_eduKhoa_InsertResult">
+      <Column Name="[Identity]" Member="Identity" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_eduKhoa_Load_List" Method="sp_eduKhoa_Load_List">
+    <ElementType Name="sp_eduKhoa_Load_ListResult">
+      <Column Name="ID_khoa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ma_khoa" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ten_khoa" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ID_truong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ten_truong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_eduKhoa_Update" Method="sp_eduKhoa_Update">
+    <Parameter Name="ID_khoa" Parameter="iD_khoa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Ma_khoa" Parameter="ma_khoa" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Ten_khoa" Parameter="ten_khoa" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="ID_truong" Parameter="iD_truong" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_eduKhoa_UpdateResult">
+      <Column Name="Updated" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_eduKhoa_Delete" Method="sp_eduKhoa_Delete">
+    <Parameter Name="ID_khoa" Parameter="iD_khoa" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_eduKhoa_DeleteResult">
+      <Column Name="Deleted" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_eduHocBongSinhVien_ChangeStatus" Method="sp_eduHocBongSinhVien_ChangeStatus">
+    <Parameter Name="ID_hb_sv" Parameter="iD_hb_sv" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Trang_thai" Parameter="trang_thai" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_eduHocBongSinhVien_ChangeStatusResult">
+      <Column Name="Updated" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_eduHoiThao_Update" Method="sp_eduHoiThao_Update">
+    <Parameter Name="ID_hoi_thao" Parameter="iD_hoi_thao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Ten_hoi_thao" Parameter="ten_hoi_thao" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Ngay_bat_dau" Parameter="ngay_bat_dau" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Ngay_ket_thuc" Parameter="ngay_ket_thuc" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Dia_chi" Parameter="dia_chi" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Nguoi_to_chuc" Parameter="nguoi_to_chuc" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="So_luong_ve_moi" Parameter="so_luong_ve_moi" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_eduHoiThao_UpdateResult">
+      <Column Name="Updated" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_eduHoiThao_Load_List" Method="sp_eduHoiThao_Load_List">
+    <ElementType Name="sp_eduHoiThao_Load_ListResult">
+      <Column Name="ID_hoi_thao" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ten_hoi_thao" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Ngay_bat_dau" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Ngay_ket_thuc" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Dia_chi" Type="System.String" DbType="NChar(200)" CanBeNull="true" />
+      <Column Name="Nguoi_to_chuc" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="So_luong_ve_moi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_eduHoiThao_Insert" Method="sp_eduHoiThao_Insert">
+    <Parameter Name="Ten_hoi_thao" Parameter="ten_hoi_thao" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Ngay_bat_dau" Parameter="ngay_bat_dau" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Ngay_ket_thuc" Parameter="ngay_ket_thuc" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Dia_chi" Parameter="dia_chi" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Nguoi_to_chuc" Parameter="nguoi_to_chuc" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="So_luong_ve_moi" Parameter="so_luong_ve_moi" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_eduHoiThao_InsertResult">
+      <Column Name="[Identity]" Member="Identity" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.eduDanhSachHoTro_Update" Method="eduDanhSachHoTro_Update">
+    <Parameter Name="ID_ho_tro" Parameter="iD_ho_tro" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_loai" Parameter="iD_loai" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_dia_phuong" Parameter="iD_dia_phuong" Type="System.Int32" DbType="Int" />
+    <Parameter Name="So_luong" Parameter="so_luong" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Trang_thai_duyet" Parameter="trang_thai_duyet" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Thoi_gian_quyen_gop" Parameter="thoi_gian_quyen_gop" Type="System.Double" DbType="Float" />
+    <Parameter Name="So_tien_mong_muon" Parameter="so_tien_mong_muon" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="So_tien_ung_ho" Parameter="so_tien_ung_ho" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <ElementType Name="eduDanhSachHoTro_UpdateResult">
+      <Column Name="Updated" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.eduDanhSachHoTro_INSERT" Method="eduDanhSachHoTro_INSERT">
+    <Parameter Name="ID_loai" Parameter="iD_loai" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_dia_phuong" Parameter="iD_dia_phuong" Type="System.Int32" DbType="Int" />
+    <Parameter Name="So_luong" Parameter="so_luong" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Trang_thai_duyet" Parameter="trang_thai_duyet" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Thoi_gian_quyen_gop" Parameter="thoi_gian_quyen_gop" Type="System.Double" DbType="Float" />
+    <Parameter Name="So_tien_mong_muon" Parameter="so_tien_mong_muon" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="So_tien_ung_ho" Parameter="so_tien_ung_ho" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <ElementType Name="eduDanhSachHoTro_INSERTResult">
+      <Column Name="[Identity]" Member="Identity" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.eduDanhSachHoTro_Load_List" Method="eduDanhSachHoTro_Load_List">
+    <ElementType Name="eduDanhSachHoTro_Load_ListResult">
+      <Column Name="ID_ho_tro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_loai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_dia_phuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="So_luong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Trang_thai_duyet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Thoi_gian_quyen_gop" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="So_tien_mong_muon" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="So_tien_ung_ho" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Ten_dia_phuong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ten_loai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

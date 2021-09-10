@@ -16,5 +16,8 @@ namespace TemplateAPI.CommonClass.Models.InputModels
         public string Ten_loai { get; set; }
         public string Ten_trang_thai { get; set; }
         public string Ten_don_vi { get; set; }
+        public double Thoi_gian_quyen_gop { get; set; }
+        public decimal So_tien_mong_muon { get; set; }
+        public decimal So_tien_ung_ho { get; set; }
     }
 }

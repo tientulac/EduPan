@@ -45,7 +45,11 @@ namespace TemplateAPI.Controllers
                                Ten_dia_phuong = a.Ten_dia_phuong,
                                Ten_loai = a.Ten_loai,
                                Ten_trang_thai = a.Trang_thai_duyet == true ? "Đã duyệt" : "Chờ duyệt",
-                               Ten_don_vi = a.Ten_loai.Contains("thực phẩm") ? string.Format("{0} (kg)",a.So_luong) : a.So_luong.ToString() 
+                               Ten_don_vi = a.Ten_loai.Contains("thực phẩm") ? string.Format("{0} (kg)",a.So_luong) : a.So_luong.ToString(),
+                               Thoi_gian_quyen_gop = a.Thoi_gian_quyen_gop.GetValueOrDefault(),
+                               So_tien_mong_muon = a.So_tien_mong_muon.GetValueOrDefault(),
+                               So_tien_ung_ho = a.So_tien_ung_ho.GetValueOrDefault()
+
                            }).ToList();
                 res.Data = lst;
                 res.Status = StatusID.Success;

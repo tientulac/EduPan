@@ -35,7 +35,7 @@ namespace TemplateAPI.DAL
             ISingleResult<eduHocBongSinhVien_InsertResult> sp_result;
             try
             {
-                sp_result = db.eduHocBongSinhVien_Insert(req.ID_loai,req.Ten_hoc_bong,req.Ngay_cap,req.Trang_thai,req.ID_sinh_vien);
+                sp_result = db.eduHocBongSinhVien_Insert(req.ID_loai,req.Ten_hoc_bong,req.Ngay_cap,req.Trang_thai,req.ID_sinh_vien,req.Gia_tri_max,req.Ngay_het_han);
             }
             catch (Exception ex)
             {
@@ -49,7 +49,7 @@ namespace TemplateAPI.DAL
             ISingleResult<eduHocBongSinhVien_UpdateResult> sp_result;
             try
             {
-                sp_result = db.eduHocBongSinhVien_Update(req.ID_hb_sv,req.ID_loai, req.Ten_hoc_bong, req.Ngay_cap, req.Trang_thai,req.ID_sinh_vien);
+                sp_result = db.eduHocBongSinhVien_Update(req.ID_loai,req.ID_loai, req.Ten_hoc_bong, req.Ngay_cap, req.Trang_thai, req.ID_sinh_vien, req.Gia_tri_max, req.Ngay_het_han);
             }
             catch (Exception ex)
             {

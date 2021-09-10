@@ -16,5 +16,7 @@ namespace TemplateAPI.CommonClass.Models.InputModels
         public string Ten_loai_hoc_bong { get; set; }
         public int ID_sinh_vien { get; set; }
         public string Ho_ten { get; set; }
+        public decimal Gia_tri_max { get; set; }
+        public DateTime Ngay_het_han { get; set; }
     }
 }

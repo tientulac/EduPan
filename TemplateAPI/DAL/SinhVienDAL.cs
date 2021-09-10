@@ -37,7 +37,7 @@ namespace TemplateAPI.DAL
             ISingleResult<sp_eduSinhVien_InsertResult> sp_result;
             try
             {
-                sp_result = db.sp_eduSinhVien_Insert(req.Ho_ten,req.Dia_chi,req.Email,req.So_dien_thoai,req.CCCD,req.Gioi_tinh,req.Ngay_sinh,req.ID_truong);
+                sp_result = db.sp_eduSinhVien_Insert(req.Ho_ten,req.Dia_chi,req.Email,req.So_dien_thoai,req.CCCD,req.Gioi_tinh,req.Ngay_sinh,req.ID_khoa);
             }
             catch (Exception ex)
             {
@@ -51,7 +51,7 @@ namespace TemplateAPI.DAL
             ISingleResult<sp_eduSinhVien_UpdateResult> sp_result;
             try
             {
-                sp_result = db.sp_eduSinhVien_Update(req.ID_sinh_vien,req.Ho_ten, req.Dia_chi, req.Email, req.So_dien_thoai, req.CCCD, req.Gioi_tinh, req.Ngay_sinh, req.ID_truong);
+                sp_result = db.sp_eduSinhVien_Update(req.ID_sinh_vien,req.Ho_ten, req.Dia_chi, req.Email, req.So_dien_thoai, req.CCCD, req.Gioi_tinh, req.Ngay_sinh, req.ID_khoa);
             }
             catch (Exception ex)
             {

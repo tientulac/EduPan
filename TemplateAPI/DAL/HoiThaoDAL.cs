@@ -35,7 +35,7 @@ namespace TemplateAPI.DAL
             ISingleResult<sp_eduHoiThao_InsertResult> sp_result;
             try
             {
-                sp_result = db.sp_eduHoiThao_Insert(req.Ten_hoi_thao,req.Ngay_bat_dau,req.Ngay_ket_thuc);
+                sp_result = db.sp_eduHoiThao_Insert(req.Ten_hoi_thao,req.Ngay_bat_dau,req.Ngay_ket_thuc,req.Dia_chi,req.Nguoi_to_chuc,req.So_luong_ve_moi);
             }
             catch (Exception ex)
             {
@@ -49,7 +49,7 @@ namespace TemplateAPI.DAL
             ISingleResult<sp_eduHoiThao_UpdateResult> sp_result;
             try
             {
-                sp_result = db.sp_eduHoiThao_Update(req.ID_hoi_thao,req.Ten_hoi_thao, req.Ngay_bat_dau, req.Ngay_ket_thuc);
+                sp_result = db.sp_eduHoiThao_Update(req.ID_hoi_thao, req.Ten_hoi_thao, req.Ngay_bat_dau, req.Ngay_ket_thuc, req.Dia_chi, req.Nguoi_to_chuc, req.So_luong_ve_moi);
             }
             catch (Exception ex)
             {

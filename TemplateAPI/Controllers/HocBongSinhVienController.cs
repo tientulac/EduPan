@@ -42,10 +42,12 @@ namespace TemplateAPI.Controllers
                                Ten_hoc_bong = a.Ten_hoc_bong,
                                Ngay_cap = a.Ngay_cap,
                                Trang_thai = a.Trang_thai.GetValueOrDefault(),
-                               Ten_trang_thai = a.Trang_thai == 1 ? "Đã duyệt" : a.Trang_thai == 2 ? "Chờ duyệt" : "Đã chuyển đến sinh viên",
+                               Ten_trang_thai = a.Trang_thai == 1 ? "Đã duyệt" : a.Trang_thai == 2 ? "Chờ duyệt" : a.Trang_thai == 3 ? "Từ chối duyệt" : "Đã chuyển đến sinh viên",
                                Ten_loai_hoc_bong = a.Ten_loai_hoc_bong,
                                ID_sinh_vien = a.ID_sinh_vien.GetValueOrDefault(),
-                               Ho_ten = a.Ho_ten
+                               Ho_ten = a.Ho_ten,
+                               Gia_tri_max = a.Gia_tri_max.GetValueOrDefault(),
+                               Ngay_het_han = a.Ngay_het_han.GetValueOrDefault()
                            }).ToList();
                 res.Data = lst;
                 res.Status = StatusID.Success;
@@ -139,6 +141,33 @@ namespace TemplateAPI.Controllers
                 {
                     res.Status = StatusID.InternalServer;
                     res.Message = "Xóa thất bại !";
+                }
+            }
+            catch (Exception ex)
+            {
+                res.Status = StatusID.InternalServer;
+                res.Message = ex.Message;
+            }
+            return await Task.FromResult(res);
+        }
+
+        [HttpGet]
+        [Route("ChangeStatus")]
+        public async Task<ResponseBase> ChangeStatus(int ID_hb_sv,int Trang_thai)
+        {
+            ResponseBase res = new ResponseBase();
+            try
+            {
+                var rs = db.sp_eduHocBongSinhVien_ChangeStatus(ID_hb_sv, Trang_thai);
+                if (rs.FirstOrDefault().Updated == 1)
+                {
+                    res.Status = StatusID.Success;
+                    res.Message = "Cập nhật trạng thái thành công !";
+                }
+                else
+                {
+                    res.Status = StatusID.InternalServer;
+                    res.Message = "Cập nhật trạng thái thất bại !";
                 }
             }
             catch (Exception ex)
