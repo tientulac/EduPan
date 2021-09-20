@@ -26,6 +26,16 @@ namespace TemplateAPI.Controllers
         {
             db = new LinqDataContext();
         }
+        AccountDAL objAccount = new AccountDAL();
+
+        /**
+         * LOGIN ACCOUNT
+         * Username
+         * Password
+         */
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("AutoLogin")]
 
         public static string GetMD5(string str)
         {
@@ -40,16 +50,6 @@ namespace TemplateAPI.Controllers
             return hashString;
         }
 
-        AccountDAL objAccount = new AccountDAL();
-
-        /**
-         * LOGIN ACCOUNT
-         * Username
-         * Password
-         */
-        [AllowAnonymous]
-        [HttpPost]
-        [Route("AutoLogin")]
         public HttpResponseMessage AutoLogin([FromBody] RequestLogin m)
         {
             ResponseLogin res = new ResponseLogin();

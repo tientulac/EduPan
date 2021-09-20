@@ -553,54 +553,6 @@ namespace TemplateAPI.Models
 			return ((ISingleResult<sp_eduVeMoi_UpdateResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_htUsers_Login")]
-		public ISingleResult<sp_htUsers_LoginResult> sp_htUsers_Login([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserName", DbType="NVarChar(20)")] string userName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PassWord", DbType="NVarChar(50)")] string passWord)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userName, passWord);
-			return ((ISingleResult<sp_htUsers_LoginResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_htUsers_Update")]
-		public ISingleResult<sp_htUsers_UpdateResult> sp_htUsers_Update([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserID", DbType="Int")] System.Nullable<int> userID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FullName", DbType="NVarChar(50)")] string fullName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Admin", DbType="Bit")] System.Nullable<bool> admin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Active", DbType="Bit")] System.Nullable<bool> active, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(100)")] string email)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userID, fullName, admin, active, email);
-			return ((ISingleResult<sp_htUsers_UpdateResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_htUsers_UpdateInfo")]
-		public ISingleResult<sp_htUsers_UpdateInfoResult> sp_htUsers_UpdateInfo([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserID", DbType="Int")] System.Nullable<int> userID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FullName", DbType="NVarChar(50)")] string fullName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(50)")] string email)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userID, fullName, email);
-			return ((ISingleResult<sp_htUsers_UpdateInfoResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_htUsers_UpdatePassword")]
-		public int sp_htUsers_UpdatePassword([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserName", DbType="NVarChar(20)")] string userName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PasswordNew", DbType="NVarChar(50)")] string passwordNew)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userName, passwordNew);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Urcheck")]
-		public ISingleResult<sp_UrcheckResult> sp_Urcheck([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserName", DbType="NVarChar(50)")] string userName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(50)")] string password)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userName, password);
-			return ((ISingleResult<sp_UrcheckResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Urcheck_delete", IsComposable=true)]
-		public object sp_Urcheck_delete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserID", DbType="Int")] System.Nullable<int> userID)
-		{
-			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userID).ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_htUsers_ChangePassword")]
-		public ISingleResult<sp_htUsers_ChangePasswordResult> sp_htUsers_ChangePassword([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserName", DbType="NVarChar(20)")] string userName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PassWordOld", DbType="NVarChar(50)")] string passWordOld, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PasswordNew", DbType="NVarChar(50)")] string passwordNew)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userName, passWordOld, passwordNew);
-			return ((ISingleResult<sp_htUsers_ChangePasswordResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_eduVeMoi_Insert")]
 		public ISingleResult<sp_eduVeMoi_InsertResult> sp_eduVeMoi_Insert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ten_ve", DbType="NVarChar(50)")] string ten_ve, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ngay_bat_dau", DbType="Date")] System.Nullable<System.DateTime> ngay_bat_dau, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ngay_ket_thuc", DbType="Date")] System.Nullable<System.DateTime> ngay_ket_thuc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_loai", DbType="Int")] System.Nullable<int> iD_loai)
 		{
@@ -893,6 +845,110 @@ namespace TemplateAPI.Models
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<eduDanhSachHoTro_Load_ListResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Urcheck_delete", IsComposable=true)]
+		public object sp_Urcheck_delete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserID", DbType="Int")] System.Nullable<int> userID)
+		{
+			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userID).ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Urcheck")]
+		public ISingleResult<sp_UrcheckResult> sp_Urcheck([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserName", DbType="NVarChar(50)")] string userName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(50)")] string password)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userName, password);
+			return ((ISingleResult<sp_UrcheckResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_htUsers_UpdatePassword")]
+		public int sp_htUsers_UpdatePassword([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserName", DbType="NVarChar(20)")] string userName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PasswordNew", DbType="NVarChar(50)")] string passwordNew)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userName, passwordNew);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_htUsers_UpdateInfo")]
+		public ISingleResult<sp_htUsers_UpdateInfoResult> sp_htUsers_UpdateInfo([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserID", DbType="Int")] System.Nullable<int> userID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FullName", DbType="NVarChar(50)")] string fullName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(50)")] string email)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userID, fullName, email);
+			return ((ISingleResult<sp_htUsers_UpdateInfoResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_htUsers_Login")]
+		public ISingleResult<sp_htUsers_LoginResult> sp_htUsers_Login([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserName", DbType="NVarChar(20)")] string userName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PassWord", DbType="NVarChar(50)")] string passWord)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userName, passWord);
+			return ((ISingleResult<sp_htUsers_LoginResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_htUsers_Load_List_All")]
+		public ISingleResult<sp_htUsers_Load_List_AllResult> sp_htUsers_Load_List_All()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_htUsers_Load_List_AllResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_htUsers_Update")]
+		public ISingleResult<sp_htUsers_UpdateResult> sp_htUsers_Update([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserID", DbType="Int")] System.Nullable<int> userID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FullName", DbType="NVarChar(50)")] string fullName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Admin", DbType="Bit")] System.Nullable<bool> admin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Active", DbType="Bit")] System.Nullable<bool> active, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(100)")] string email)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userID, fullName, admin, active, email);
+			return ((ISingleResult<sp_htUsers_UpdateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_htUsers_Load")]
+		public ISingleResult<sp_htUsers_LoadResult> sp_htUsers_Load([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserID", DbType="Int")] System.Nullable<int> userID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userID);
+			return ((ISingleResult<sp_htUsers_LoadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_htUsers_Insert")]
+		public ISingleResult<sp_htUsers_InsertResult> sp_htUsers_Insert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserName", DbType="NVarChar(50)")] string userName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PassWord", DbType="NVarChar(50)")] string passWord, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FullName", DbType="NVarChar(50)")] string fullName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Admin", DbType="Bit")] System.Nullable<bool> admin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Active", DbType="Bit")] System.Nullable<bool> active, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(100)")] string email)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userName, passWord, fullName, admin, active, email);
+			return ((ISingleResult<sp_htUsers_InsertResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_htUsers_Delete")]
+		public ISingleResult<sp_htUsers_DeleteResult> sp_htUsers_Delete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserID", DbType="Int")] System.Nullable<int> userID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userID);
+			return ((ISingleResult<sp_htUsers_DeleteResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_htUsers_ChangePassword")]
+		public ISingleResult<sp_htUsers_ChangePasswordResult> sp_htUsers_ChangePassword([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserName", DbType="NVarChar(20)")] string userName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PassWordOld", DbType="NVarChar(50)")] string passWordOld, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PasswordNew", DbType="NVarChar(50)")] string passwordNew)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userName, passWordOld, passwordNew);
+			return ((ISingleResult<sp_htUsers_ChangePasswordResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_eduVeMoiHoiThao_Delete")]
+		public ISingleResult<sp_eduVeMoiHoiThao_DeleteResult> sp_eduVeMoiHoiThao_Delete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_ve_moi_hoi_thao", DbType="Int")] System.Nullable<int> iD_ve_moi_hoi_thao)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_ve_moi_hoi_thao);
+			return ((ISingleResult<sp_eduVeMoiHoiThao_DeleteResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_eduVeMoiHoiThao_Insert")]
+		public ISingleResult<sp_eduVeMoiHoiThao_InsertResult> sp_eduVeMoiHoiThao_Insert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_hoi_thao", DbType="Int")] System.Nullable<int> iD_hoi_thao, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_ve_moi", DbType="Int")] System.Nullable<int> iD_ve_moi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_chuyen_gia", DbType="Int")] System.Nullable<int> iD_chuyen_gia)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_hoi_thao, iD_ve_moi, iD_chuyen_gia);
+			return ((ISingleResult<sp_eduVeMoiHoiThao_InsertResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_eduVeMoiHoiThao_Load_List")]
+		public ISingleResult<sp_eduVeMoiHoiThao_Load_ListResult> sp_eduVeMoiHoiThao_Load_List()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_eduVeMoiHoiThao_Load_ListResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_eduVeMoiHoiThao_Update")]
+		public ISingleResult<sp_eduVeMoiHoiThao_UpdateResult> sp_eduVeMoiHoiThao_Update([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_ve_moi_hoi_thao", DbType="Int")] System.Nullable<int> iD_ve_moi_hoi_thao, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_hoi_thao", DbType="Int")] System.Nullable<int> iD_hoi_thao, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_ve_moi", DbType="Int")] System.Nullable<int> iD_ve_moi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_chuyen_gia", DbType="Int")] System.Nullable<int> iD_chuyen_gia)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_ve_moi_hoi_thao, iD_hoi_thao, iD_ve_moi, iD_chuyen_gia);
+			return ((ISingleResult<sp_eduVeMoiHoiThao_UpdateResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -6044,352 +6100,6 @@ namespace TemplateAPI.Models
 		}
 	}
 	
-	public partial class sp_htUsers_LoginResult
-	{
-		
-		private int _UserID;
-		
-		private string _UserName;
-		
-		private string _PassWord;
-		
-		private string _FullName;
-		
-		private System.Nullable<bool> _Admin;
-		
-		private System.Nullable<bool> _Active;
-		
-		private string _Email;
-		
-		public sp_htUsers_LoginResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int NOT NULL")]
-		public int UserID
-		{
-			get
-			{
-				return this._UserID;
-			}
-			set
-			{
-				if ((this._UserID != value))
-				{
-					this._UserID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string UserName
-		{
-			get
-			{
-				return this._UserName;
-			}
-			set
-			{
-				if ((this._UserName != value))
-				{
-					this._UserName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PassWord", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string PassWord
-		{
-			get
-			{
-				return this._PassWord;
-			}
-			set
-			{
-				if ((this._PassWord != value))
-				{
-					this._PassWord = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string FullName
-		{
-			get
-			{
-				return this._FullName;
-			}
-			set
-			{
-				if ((this._FullName != value))
-				{
-					this._FullName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Admin", DbType="Bit")]
-		public System.Nullable<bool> Admin
-		{
-			get
-			{
-				return this._Admin;
-			}
-			set
-			{
-				if ((this._Admin != value))
-				{
-					this._Admin = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit")]
-		public System.Nullable<bool> Active
-		{
-			get
-			{
-				return this._Active;
-			}
-			set
-			{
-				if ((this._Active != value))
-				{
-					this._Active = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(200)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_htUsers_UpdateResult
-	{
-		
-		private int _Updated;
-		
-		public sp_htUsers_UpdateResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Updated", DbType="Int NOT NULL")]
-		public int Updated
-		{
-			get
-			{
-				return this._Updated;
-			}
-			set
-			{
-				if ((this._Updated != value))
-				{
-					this._Updated = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_htUsers_UpdateInfoResult
-	{
-		
-		private int _Updated;
-		
-		public sp_htUsers_UpdateInfoResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Updated", DbType="Int NOT NULL")]
-		public int Updated
-		{
-			get
-			{
-				return this._Updated;
-			}
-			set
-			{
-				if ((this._Updated != value))
-				{
-					this._Updated = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_UrcheckResult
-	{
-		
-		private int _UserID;
-		
-		private string _UserName;
-		
-		private string _PassWord;
-		
-		private string _FullName;
-		
-		private System.Nullable<bool> _Admin;
-		
-		private System.Nullable<bool> _Active;
-		
-		private string _Email;
-		
-		public sp_UrcheckResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int NOT NULL")]
-		public int UserID
-		{
-			get
-			{
-				return this._UserID;
-			}
-			set
-			{
-				if ((this._UserID != value))
-				{
-					this._UserID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string UserName
-		{
-			get
-			{
-				return this._UserName;
-			}
-			set
-			{
-				if ((this._UserName != value))
-				{
-					this._UserName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PassWord", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string PassWord
-		{
-			get
-			{
-				return this._PassWord;
-			}
-			set
-			{
-				if ((this._PassWord != value))
-				{
-					this._PassWord = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string FullName
-		{
-			get
-			{
-				return this._FullName;
-			}
-			set
-			{
-				if ((this._FullName != value))
-				{
-					this._FullName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Admin", DbType="Bit")]
-		public System.Nullable<bool> Admin
-		{
-			get
-			{
-				return this._Admin;
-			}
-			set
-			{
-				if ((this._Admin != value))
-				{
-					this._Admin = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit")]
-		public System.Nullable<bool> Active
-		{
-			get
-			{
-				return this._Active;
-			}
-			set
-			{
-				if ((this._Active != value))
-				{
-					this._Active = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(200)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_htUsers_ChangePasswordResult
-	{
-		
-		private int _ROW;
-		
-		public sp_htUsers_ChangePasswordResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROW", DbType="Int NOT NULL")]
-		public int ROW
-		{
-			get
-			{
-				return this._ROW;
-			}
-			set
-			{
-				if ((this._ROW != value))
-				{
-					this._ROW = value;
-				}
-			}
-		}
-	}
-	
 	public partial class sp_eduVeMoi_InsertResult
 	{
 		
@@ -8881,6 +8591,938 @@ namespace TemplateAPI.Models
 				if ((this._Ten_loai != value))
 				{
 					this._Ten_loai = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_UrcheckResult
+	{
+		
+		private int _UserID;
+		
+		private string _UserName;
+		
+		private string _PassWord;
+		
+		private string _FullName;
+		
+		private System.Nullable<bool> _Admin;
+		
+		private System.Nullable<bool> _Active;
+		
+		private string _Email;
+		
+		public sp_UrcheckResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int NOT NULL")]
+		public int UserID
+		{
+			get
+			{
+				return this._UserID;
+			}
+			set
+			{
+				if ((this._UserID != value))
+				{
+					this._UserID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string UserName
+		{
+			get
+			{
+				return this._UserName;
+			}
+			set
+			{
+				if ((this._UserName != value))
+				{
+					this._UserName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PassWord", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PassWord
+		{
+			get
+			{
+				return this._PassWord;
+			}
+			set
+			{
+				if ((this._PassWord != value))
+				{
+					this._PassWord = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string FullName
+		{
+			get
+			{
+				return this._FullName;
+			}
+			set
+			{
+				if ((this._FullName != value))
+				{
+					this._FullName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Admin", DbType="Bit")]
+		public System.Nullable<bool> Admin
+		{
+			get
+			{
+				return this._Admin;
+			}
+			set
+			{
+				if ((this._Admin != value))
+				{
+					this._Admin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit")]
+		public System.Nullable<bool> Active
+		{
+			get
+			{
+				return this._Active;
+			}
+			set
+			{
+				if ((this._Active != value))
+				{
+					this._Active = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(200)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_htUsers_UpdateInfoResult
+	{
+		
+		private int _Updated;
+		
+		public sp_htUsers_UpdateInfoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Updated", DbType="Int NOT NULL")]
+		public int Updated
+		{
+			get
+			{
+				return this._Updated;
+			}
+			set
+			{
+				if ((this._Updated != value))
+				{
+					this._Updated = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_htUsers_LoginResult
+	{
+		
+		private int _UserID;
+		
+		private string _UserName;
+		
+		private string _PassWord;
+		
+		private string _FullName;
+		
+		private System.Nullable<bool> _Admin;
+		
+		private System.Nullable<bool> _Active;
+		
+		private string _Email;
+		
+		public sp_htUsers_LoginResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int NOT NULL")]
+		public int UserID
+		{
+			get
+			{
+				return this._UserID;
+			}
+			set
+			{
+				if ((this._UserID != value))
+				{
+					this._UserID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string UserName
+		{
+			get
+			{
+				return this._UserName;
+			}
+			set
+			{
+				if ((this._UserName != value))
+				{
+					this._UserName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PassWord", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PassWord
+		{
+			get
+			{
+				return this._PassWord;
+			}
+			set
+			{
+				if ((this._PassWord != value))
+				{
+					this._PassWord = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string FullName
+		{
+			get
+			{
+				return this._FullName;
+			}
+			set
+			{
+				if ((this._FullName != value))
+				{
+					this._FullName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Admin", DbType="Bit")]
+		public System.Nullable<bool> Admin
+		{
+			get
+			{
+				return this._Admin;
+			}
+			set
+			{
+				if ((this._Admin != value))
+				{
+					this._Admin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit")]
+		public System.Nullable<bool> Active
+		{
+			get
+			{
+				return this._Active;
+			}
+			set
+			{
+				if ((this._Active != value))
+				{
+					this._Active = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(200)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_htUsers_Load_List_AllResult
+	{
+		
+		private int _UserID;
+		
+		private string _UserName;
+		
+		private string _PassWord;
+		
+		private string _FullName;
+		
+		private System.Nullable<bool> _Admin;
+		
+		private System.Nullable<bool> _Active;
+		
+		private string _Email;
+		
+		public sp_htUsers_Load_List_AllResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int NOT NULL")]
+		public int UserID
+		{
+			get
+			{
+				return this._UserID;
+			}
+			set
+			{
+				if ((this._UserID != value))
+				{
+					this._UserID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string UserName
+		{
+			get
+			{
+				return this._UserName;
+			}
+			set
+			{
+				if ((this._UserName != value))
+				{
+					this._UserName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PassWord", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PassWord
+		{
+			get
+			{
+				return this._PassWord;
+			}
+			set
+			{
+				if ((this._PassWord != value))
+				{
+					this._PassWord = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string FullName
+		{
+			get
+			{
+				return this._FullName;
+			}
+			set
+			{
+				if ((this._FullName != value))
+				{
+					this._FullName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Admin", DbType="Bit")]
+		public System.Nullable<bool> Admin
+		{
+			get
+			{
+				return this._Admin;
+			}
+			set
+			{
+				if ((this._Admin != value))
+				{
+					this._Admin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit")]
+		public System.Nullable<bool> Active
+		{
+			get
+			{
+				return this._Active;
+			}
+			set
+			{
+				if ((this._Active != value))
+				{
+					this._Active = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(200)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_htUsers_UpdateResult
+	{
+		
+		private int _Updated;
+		
+		public sp_htUsers_UpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Updated", DbType="Int NOT NULL")]
+		public int Updated
+		{
+			get
+			{
+				return this._Updated;
+			}
+			set
+			{
+				if ((this._Updated != value))
+				{
+					this._Updated = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_htUsers_LoadResult
+	{
+		
+		private int _UserID;
+		
+		private string _UserName;
+		
+		private string _PassWord;
+		
+		private string _FullName;
+		
+		private System.Nullable<bool> _Admin;
+		
+		private System.Nullable<bool> _Active;
+		
+		private string _Email;
+		
+		public sp_htUsers_LoadResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int NOT NULL")]
+		public int UserID
+		{
+			get
+			{
+				return this._UserID;
+			}
+			set
+			{
+				if ((this._UserID != value))
+				{
+					this._UserID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string UserName
+		{
+			get
+			{
+				return this._UserName;
+			}
+			set
+			{
+				if ((this._UserName != value))
+				{
+					this._UserName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PassWord", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PassWord
+		{
+			get
+			{
+				return this._PassWord;
+			}
+			set
+			{
+				if ((this._PassWord != value))
+				{
+					this._PassWord = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string FullName
+		{
+			get
+			{
+				return this._FullName;
+			}
+			set
+			{
+				if ((this._FullName != value))
+				{
+					this._FullName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Admin", DbType="Bit")]
+		public System.Nullable<bool> Admin
+		{
+			get
+			{
+				return this._Admin;
+			}
+			set
+			{
+				if ((this._Admin != value))
+				{
+					this._Admin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit")]
+		public System.Nullable<bool> Active
+		{
+			get
+			{
+				return this._Active;
+			}
+			set
+			{
+				if ((this._Active != value))
+				{
+					this._Active = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(200)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_htUsers_InsertResult
+	{
+		
+		private System.Nullable<decimal> _Identity;
+		
+		public sp_htUsers_InsertResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Identity]", Storage="_Identity", DbType="Decimal(38,0)")]
+		public System.Nullable<decimal> Identity
+		{
+			get
+			{
+				return this._Identity;
+			}
+			set
+			{
+				if ((this._Identity != value))
+				{
+					this._Identity = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_htUsers_DeleteResult
+	{
+		
+		private int _Deleted;
+		
+		public sp_htUsers_DeleteResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Deleted", DbType="Int NOT NULL")]
+		public int Deleted
+		{
+			get
+			{
+				return this._Deleted;
+			}
+			set
+			{
+				if ((this._Deleted != value))
+				{
+					this._Deleted = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_htUsers_ChangePasswordResult
+	{
+		
+		private int _ROW;
+		
+		public sp_htUsers_ChangePasswordResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROW", DbType="Int NOT NULL")]
+		public int ROW
+		{
+			get
+			{
+				return this._ROW;
+			}
+			set
+			{
+				if ((this._ROW != value))
+				{
+					this._ROW = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_eduVeMoiHoiThao_DeleteResult
+	{
+		
+		private int _Deleted;
+		
+		public sp_eduVeMoiHoiThao_DeleteResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Deleted", DbType="Int NOT NULL")]
+		public int Deleted
+		{
+			get
+			{
+				return this._Deleted;
+			}
+			set
+			{
+				if ((this._Deleted != value))
+				{
+					this._Deleted = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_eduVeMoiHoiThao_InsertResult
+	{
+		
+		private System.Nullable<decimal> _Identity;
+		
+		public sp_eduVeMoiHoiThao_InsertResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Identity]", Storage="_Identity", DbType="Decimal(38,0)")]
+		public System.Nullable<decimal> Identity
+		{
+			get
+			{
+				return this._Identity;
+			}
+			set
+			{
+				if ((this._Identity != value))
+				{
+					this._Identity = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_eduVeMoiHoiThao_Load_ListResult
+	{
+		
+		private int _ID_ve_moi_hoi_thao;
+		
+		private System.Nullable<int> _ID_hoi_thao;
+		
+		private System.Nullable<int> _ID_ve_moi;
+		
+		private System.Nullable<int> _ID_chuyen_gia;
+		
+		private string _Ten_hoi_thao;
+		
+		private string _Ten_ve;
+		
+		private System.Nullable<System.DateTime> _Ngay_bat_dau;
+		
+		private System.Nullable<System.DateTime> _Ngay_ket_thuc;
+		
+		private string _Ten_loai;
+		
+		private string _Ten_chuyen_gia;
+		
+		public sp_eduVeMoiHoiThao_Load_ListResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_ve_moi_hoi_thao", DbType="Int NOT NULL")]
+		public int ID_ve_moi_hoi_thao
+		{
+			get
+			{
+				return this._ID_ve_moi_hoi_thao;
+			}
+			set
+			{
+				if ((this._ID_ve_moi_hoi_thao != value))
+				{
+					this._ID_ve_moi_hoi_thao = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_hoi_thao", DbType="Int")]
+		public System.Nullable<int> ID_hoi_thao
+		{
+			get
+			{
+				return this._ID_hoi_thao;
+			}
+			set
+			{
+				if ((this._ID_hoi_thao != value))
+				{
+					this._ID_hoi_thao = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_ve_moi", DbType="Int")]
+		public System.Nullable<int> ID_ve_moi
+		{
+			get
+			{
+				return this._ID_ve_moi;
+			}
+			set
+			{
+				if ((this._ID_ve_moi != value))
+				{
+					this._ID_ve_moi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_chuyen_gia", DbType="Int")]
+		public System.Nullable<int> ID_chuyen_gia
+		{
+			get
+			{
+				return this._ID_chuyen_gia;
+			}
+			set
+			{
+				if ((this._ID_chuyen_gia != value))
+				{
+					this._ID_chuyen_gia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten_hoi_thao", DbType="NVarChar(MAX)")]
+		public string Ten_hoi_thao
+		{
+			get
+			{
+				return this._Ten_hoi_thao;
+			}
+			set
+			{
+				if ((this._Ten_hoi_thao != value))
+				{
+					this._Ten_hoi_thao = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten_ve", DbType="NVarChar(50)")]
+		public string Ten_ve
+		{
+			get
+			{
+				return this._Ten_ve;
+			}
+			set
+			{
+				if ((this._Ten_ve != value))
+				{
+					this._Ten_ve = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ngay_bat_dau", DbType="Date")]
+		public System.Nullable<System.DateTime> Ngay_bat_dau
+		{
+			get
+			{
+				return this._Ngay_bat_dau;
+			}
+			set
+			{
+				if ((this._Ngay_bat_dau != value))
+				{
+					this._Ngay_bat_dau = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ngay_ket_thuc", DbType="Date")]
+		public System.Nullable<System.DateTime> Ngay_ket_thuc
+		{
+			get
+			{
+				return this._Ngay_ket_thuc;
+			}
+			set
+			{
+				if ((this._Ngay_ket_thuc != value))
+				{
+					this._Ngay_ket_thuc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten_loai", DbType="NVarChar(50)")]
+		public string Ten_loai
+		{
+			get
+			{
+				return this._Ten_loai;
+			}
+			set
+			{
+				if ((this._Ten_loai != value))
+				{
+					this._Ten_loai = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten_chuyen_gia", DbType="NVarChar(50)")]
+		public string Ten_chuyen_gia
+		{
+			get
+			{
+				return this._Ten_chuyen_gia;
+			}
+			set
+			{
+				if ((this._Ten_chuyen_gia != value))
+				{
+					this._Ten_chuyen_gia = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_eduVeMoiHoiThao_UpdateResult
+	{
+		
+		private int _Updated;
+		
+		public sp_eduVeMoiHoiThao_UpdateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Updated", DbType="Int NOT NULL")]
+		public int Updated
+		{
+			get
+			{
+				return this._Updated;
+			}
+			set
+			{
+				if ((this._Updated != value))
+				{
+					this._Updated = value;
 				}
 			}
 		}

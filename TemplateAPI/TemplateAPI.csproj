@@ -242,7 +242,9 @@
     <Compile Include="CommonClass\Models\InputModels\RequestTruongHoc.cs" />
     <Compile Include="CommonClass\Models\InputModels\RequestTruongHocCongTrinh.cs" />
     <Compile Include="CommonClass\Models\InputModels\RequestTruongHocPhuongPhap.cs" />
+    <Compile Include="CommonClass\Models\InputModels\RequestUser.cs" />
     <Compile Include="CommonClass\Models\InputModels\RequestVeMoi.cs" />
+    <Compile Include="CommonClass\Models\InputModels\RequestVeMoiHoiThao.cs" />
     <Compile Include="CommonClass\Models\OutputModels\ReponseTaiLieuHoiThao.cs" />
     <Compile Include="CommonClass\Models\OutputModels\ResponseChucDanh.cs" />
     <Compile Include="CommonClass\Models\OutputModels\ResponseChuyenGia.cs" />
@@ -263,7 +265,9 @@
     <Compile Include="CommonClass\Models\OutputModels\ResponseTruongHoc.cs" />
     <Compile Include="CommonClass\Models\OutputModels\ResponseTruongHocCongTrinh.cs" />
     <Compile Include="CommonClass\Models\OutputModels\ResponseTruongHocPhuongPhap.cs" />
+    <Compile Include="CommonClass\Models\OutputModels\ResponseUser.cs" />
     <Compile Include="CommonClass\Models\OutputModels\ResponseVeMoi.cs" />
+    <Compile Include="CommonClass\Models\OutputModels\ResponseVeMoiHoiThao.cs" />
     <Compile Include="CommonClass\Models\RequestBase.cs" />
     <Compile Include="CommonClass\Models\ResponseBase.cs" />
     <Compile Include="CommonClass\Models\StatusID.cs" />
@@ -291,7 +295,9 @@
     <Compile Include="Controllers\TaiLieuHoiThaoController.cs" />
     <Compile Include="Controllers\TrungTamController.cs" />
     <Compile Include="Controllers\TruongHocController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\VeMoiController.cs" />
+    <Compile Include="Controllers\VeMoiHoiThaoController.cs" />
     <Compile Include="DAL\AccountDAL.cs" />
     <Compile Include="DAL\ChuyenGiaDAL.cs" />
     <Compile Include="DAL\ChuyenGiaPhongHopDAL.cs" />
@@ -314,7 +320,9 @@
     <Compile Include="DAL\TruongHocCongTrinhDAL.cs" />
     <Compile Include="DAL\TruongHocDAL.cs" />
     <Compile Include="DAL\TruongHocPhuongPhapDAL.cs" />
+    <Compile Include="DAL\UserDAL.cs" />
     <Compile Include="DAL\VeMoiDAL.cs" />
+    <Compile Include="DAL\VeMoiHoiThaoDAL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -356,6 +364,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="SQLScript\EduPanSQL.sql" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

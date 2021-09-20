@@ -472,67 +472,6 @@
       <Column Name="Updated" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_htUsers_Login" Method="sp_htUsers_Login">
-    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="PassWord" Parameter="passWord" Type="System.String" DbType="NVarChar(50)" />
-    <ElementType Name="sp_htUsers_LoginResult">
-      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="PassWord" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="FullName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Admin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_htUsers_Update" Method="sp_htUsers_Update">
-    <Parameter Name="UserID" Parameter="userID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="FullName" Parameter="fullName" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Admin" Parameter="admin" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="Active" Parameter="active" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(100)" />
-    <ElementType Name="sp_htUsers_UpdateResult">
-      <Column Name="Updated" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_htUsers_UpdateInfo" Method="sp_htUsers_UpdateInfo">
-    <Parameter Name="UserID" Parameter="userID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="FullName" Parameter="fullName" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
-    <ElementType Name="sp_htUsers_UpdateInfoResult">
-      <Column Name="Updated" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_htUsers_UpdatePassword" Method="sp_htUsers_UpdatePassword">
-    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="PasswordNew" Parameter="passwordNew" Type="System.String" DbType="NVarChar(50)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_Urcheck" Method="sp_Urcheck">
-    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(50)" />
-    <ElementType Name="sp_UrcheckResult">
-      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="PassWord" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="FullName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Admin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_Urcheck_delete" Method="sp_Urcheck_delete" IsComposable="true">
-    <Parameter Name="UserID" Parameter="userID" Type="System.Int32" DbType="Int" />
-    <Return Type="object" />
-  </Function>
-  <Function Name="dbo.sp_htUsers_ChangePassword" Method="sp_htUsers_ChangePassword">
-    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="PassWordOld" Parameter="passWordOld" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="PasswordNew" Parameter="passwordNew" Type="System.String" DbType="NVarChar(50)" />
-    <ElementType Name="sp_htUsers_ChangePasswordResult">
-      <Column Name="ROW" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.sp_eduVeMoi_Insert" Method="sp_eduVeMoi_Insert">
     <Parameter Name="Ten_ve" Parameter="ten_ve" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="Ngay_bat_dau" Parameter="ngay_bat_dau" Type="System.DateTime" DbType="Date" />
@@ -953,6 +892,144 @@
       <Column Name="So_tien_ung_ho" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="Ten_dia_phuong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Ten_loai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Urcheck_delete" Method="sp_Urcheck_delete" IsComposable="true">
+    <Parameter Name="UserID" Parameter="userID" Type="System.Int32" DbType="Int" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.sp_Urcheck" Method="sp_Urcheck">
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="sp_UrcheckResult">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PassWord" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Admin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_htUsers_UpdatePassword" Method="sp_htUsers_UpdatePassword">
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="PasswordNew" Parameter="passwordNew" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_htUsers_UpdateInfo" Method="sp_htUsers_UpdateInfo">
+    <Parameter Name="UserID" Parameter="userID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FullName" Parameter="fullName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="sp_htUsers_UpdateInfoResult">
+      <Column Name="Updated" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_htUsers_Login" Method="sp_htUsers_Login">
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="PassWord" Parameter="passWord" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="sp_htUsers_LoginResult">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PassWord" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Admin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_htUsers_Load_List_All" Method="sp_htUsers_Load_List_All">
+    <ElementType Name="sp_htUsers_Load_List_AllResult">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PassWord" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Admin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_htUsers_Update" Method="sp_htUsers_Update">
+    <Parameter Name="UserID" Parameter="userID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FullName" Parameter="fullName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Admin" Parameter="admin" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Active" Parameter="active" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="sp_htUsers_UpdateResult">
+      <Column Name="Updated" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_htUsers_Load" Method="sp_htUsers_Load">
+    <Parameter Name="UserID" Parameter="userID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_htUsers_LoadResult">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PassWord" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Admin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_htUsers_Insert" Method="sp_htUsers_Insert">
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="PassWord" Parameter="passWord" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="FullName" Parameter="fullName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Admin" Parameter="admin" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Active" Parameter="active" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="sp_htUsers_InsertResult">
+      <Column Name="[Identity]" Member="Identity" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_htUsers_Delete" Method="sp_htUsers_Delete">
+    <Parameter Name="UserID" Parameter="userID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_htUsers_DeleteResult">
+      <Column Name="Deleted" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_htUsers_ChangePassword" Method="sp_htUsers_ChangePassword">
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="PassWordOld" Parameter="passWordOld" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="PasswordNew" Parameter="passwordNew" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="sp_htUsers_ChangePasswordResult">
+      <Column Name="ROW" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_eduVeMoiHoiThao_Delete" Method="sp_eduVeMoiHoiThao_Delete">
+    <Parameter Name="ID_ve_moi_hoi_thao" Parameter="iD_ve_moi_hoi_thao" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_eduVeMoiHoiThao_DeleteResult">
+      <Column Name="Deleted" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_eduVeMoiHoiThao_Insert" Method="sp_eduVeMoiHoiThao_Insert">
+    <Parameter Name="ID_hoi_thao" Parameter="iD_hoi_thao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_ve_moi" Parameter="iD_ve_moi" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_chuyen_gia" Parameter="iD_chuyen_gia" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_eduVeMoiHoiThao_InsertResult">
+      <Column Name="[Identity]" Member="Identity" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_eduVeMoiHoiThao_Load_List" Method="sp_eduVeMoiHoiThao_Load_List">
+    <ElementType Name="sp_eduVeMoiHoiThao_Load_ListResult">
+      <Column Name="ID_ve_moi_hoi_thao" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_hoi_thao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_ve_moi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_chuyen_gia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ten_hoi_thao" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Ten_ve" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ngay_bat_dau" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Ngay_ket_thuc" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Ten_loai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ten_chuyen_gia" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_eduVeMoiHoiThao_Update" Method="sp_eduVeMoiHoiThao_Update">
+    <Parameter Name="ID_ve_moi_hoi_thao" Parameter="iD_ve_moi_hoi_thao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_hoi_thao" Parameter="iD_hoi_thao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_ve_moi" Parameter="iD_ve_moi" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_chuyen_gia" Parameter="iD_chuyen_gia" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_eduVeMoiHoiThao_UpdateResult">
+      <Column Name="Updated" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>
